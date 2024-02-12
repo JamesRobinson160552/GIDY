@@ -1,3 +1,5 @@
+//Ensures this object follows the singleton design pattern
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

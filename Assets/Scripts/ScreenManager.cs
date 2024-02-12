@@ -1,3 +1,5 @@
+//Contains a public method to change between screens
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
