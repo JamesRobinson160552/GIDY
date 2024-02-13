@@ -1,8 +1,9 @@
-//Contains a public method to change between screens
+//Public methods to change screens or start a batte, to be called by buttons
 
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ScreenManager : MonoBehaviour
 {
@@ -15,5 +16,11 @@ public class ScreenManager : MonoBehaviour
             screens[i].SetActive(false);
         }
         screenToShow.SetActive(true);
+    }
+
+    public void LoadBattle()
+    {
+        SceneManager.LoadScene("BattleScene");
+        Screen.orientation = ScreenOrientation.LandscapeLeft;
     }
 }
