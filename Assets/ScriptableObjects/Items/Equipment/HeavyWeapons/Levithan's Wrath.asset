@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e42a4c8dbc6a6d640aabd198bda2c6f9, type: 3}
+  m_Name: Levithan's Wrath
+  m_EditorClassIdentifier: 
+  description: ' A colossal warhammer crafted from the bones of an ancient sea monster,
+    its strikes are said to conjure tidal waves and storms.'
+  value: 100
+  weight: 5
+  slot: 3
+  sprite: {fileID: 0}
+  vigourMod: 1
+  strengthMod: 10
+  dexterityMod: 10
+  intelligenceMod: 2
+  luckMod: -1
+  accuracy: -1
