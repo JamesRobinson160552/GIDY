@@ -9,14 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b1cdeb513497024995f8296af0cd621, type: 3}
-  m_Name: testEnemy
+  m_Script: {fileID: 11500000, guid: 85f24fe49f6d2d249a960b0c1a2d97ce, type: 3}
+  m_Name: Player
   m_EditorClassIdentifier: 
-  characterName: 
+  characterName: Player
   sprite: {fileID: 0}
-  vigour: 0
-  strength: 0
-  dexterity: 0
-  intelligence: 0
-  luck: 0
-  goldDrop: 0
+  vigour: 10
+  strength: 10
+  dexterity: 10
+  intelligence: 10
+  luck: 10

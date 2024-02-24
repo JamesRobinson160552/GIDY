@@ -11,6 +11,11 @@ public class BaseEquipment : BaseItem
     [SerializeField] public int dexterityMod;
     [SerializeField] public int intelligenceMod;
     [SerializeField] public int luckMod;
+
+    public int[] ToArray() 
+    {
+        return new int[] {vigourMod, strengthMod, dexterityMod, intelligenceMod, luckMod};
+    }
 }
 
 public enum EquipmentSlot

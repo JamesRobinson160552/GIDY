@@ -7,13 +7,15 @@ using TMPro;
 
 public class HealthBar : MonoBehaviour
 {
+    [SerializeField] private TextMeshProUGUI characterName;
     [SerializeField] private Slider slider;
     [SerializeField] private TextMeshProUGUI num;
     private int currentHealth;
     private int maxHealth;
 
-    public void InitializeHealthBar(int characterMaxHealth)
+    public void InitializeHealthBar(string name, int characterMaxHealth)
     {
+        characterName.text = name;
         maxHealth = characterMaxHealth;
         currentHealth = characterMaxHealth;
 

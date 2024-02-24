@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private BaseEnemy stats;
-    private int currentHealth;
-    public Enemy(BaseEnemy stats)
+public int level;
+    [SerializeField] public BaseEnemy baseStats;
+    public int currentHealth;
+    public int[] totalStats;
+    [SerializeField] private HealthBar healthBar;
+
+    void Awake()
     {
-        this.stats = stats;
+        InitializeStats();
     }
 
-    void Start()
+    private void InitializeStats()
     {
-        currentHealth = stats.vigour;
+        totalStats = new int[] {baseStats.vigour, baseStats.strength, baseStats.dexterity, baseStats.intelligence, baseStats.luck};
+        currentHealth = totalStats[0];
+        healthBar.InitializeHealthBar(baseStats.characterName, totalStats[0]);
     }
 }
