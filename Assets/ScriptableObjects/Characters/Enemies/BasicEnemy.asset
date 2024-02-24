@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: test enemy
   sprite: {fileID: 0}
-  vigour: 8
+  vigour: 20
   strength: 8
   dexterity: 8
   intelligence: 8
