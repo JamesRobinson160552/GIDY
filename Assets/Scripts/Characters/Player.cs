@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] public BaseCharacter stats;
+    [SerializeField] public BaseArmour helmet;
+    [SerializeField] public BaseArmour armour;
+    [SerializeField] public BaseWeapon lightWeapon;
+    [SerializeField] public BaseWeapon heavyWeapon;
+    [SerializeField] public BaseWeapon magicWeapon;
+    private int currentHealth;
+
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        currentHealth = stats.vigour;
     }
 }
