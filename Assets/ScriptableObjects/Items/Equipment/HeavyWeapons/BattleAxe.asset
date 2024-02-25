@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: BattleAxe
   m_EditorClassIdentifier: 
   description: A basic battleaxe made of iron, commonly wielded by novice warriors.
-  value: 1
+  value: 5
   weight: 2
   slot: 3
   sprite: {fileID: 0}
   vigourMod: 0
-  strengthMod: 1
+  strengthMod: 4
   dexterityMod: 1
   intelligenceMod: 0
   luckMod: 0

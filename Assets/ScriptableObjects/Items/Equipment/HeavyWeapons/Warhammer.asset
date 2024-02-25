@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: A sturdy warhammer forged from bronze, suitable for beginners in combat
     training.
-  value: 1
-  weight: 2
+  value: 10
+  weight: 4
   slot: 3
   sprite: {fileID: 0}
   vigourMod: 0
-  strengthMod: 2
-  dexterityMod: 0
+  strengthMod: 6
+  dexterityMod: -1
   intelligenceMod: 0
   luckMod: 0
   accuracy: 0

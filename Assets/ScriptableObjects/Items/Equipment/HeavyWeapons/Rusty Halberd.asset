@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: An old halberd showing signs of wear and tear, but still capable of
     delivering powerful blows.
-  value: 1
-  weight: 2
+  value: 5
+  weight: 3
   slot: 3
   sprite: {fileID: 0}
   vigourMod: 0
-  strengthMod: 3
+  strengthMod: 4
   dexterityMod: -1
   intelligenceMod: 0
-  luckMod: 0
+  luckMod: 1
   accuracy: 0

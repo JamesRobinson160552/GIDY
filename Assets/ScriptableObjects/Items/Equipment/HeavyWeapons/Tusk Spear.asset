@@ -10,16 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e42a4c8dbc6a6d640aabd198bda2c6f9, type: 3}
-  m_Name: VoidSteel GreatSword
+  m_Name: Tusk Spear
   m_EditorClassIdentifier: 
-  description: A greatsword crafted with pure black steel
-  value: 10
-  weight: 3
+  description: A spear tipped with sharpened tusks, commonly used by hunters to take
+    down large game or fend off aggressive beasts.
+  value: 20
+  weight: 2
   slot: 3
   sprite: {fileID: 0}
-  vigourMod: -2
+  vigourMod: 1
   strengthMod: 4
-  dexterityMod: 2
+  dexterityMod: 0
   intelligenceMod: 0
-  luckMod: -4
-  accuracy: 0
+  luckMod: 0
+  accuracy: 1

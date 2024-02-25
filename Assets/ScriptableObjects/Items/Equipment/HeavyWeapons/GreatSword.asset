@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: GreatSword
   m_EditorClassIdentifier: 
   description: A simple greatsword made of steel, perfect for beginner swordsmen.
-  value: 1
-  weight: 2
+  value: 5
+  weight: 3
   slot: 3
   sprite: {fileID: 0}
   vigourMod: 0
-  strengthMod: 1
+  strengthMod: 5
   dexterityMod: 0
   intelligenceMod: 0
   luckMod: 0

@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e42a4c8dbc6a6d640aabd198bda2c6f9, type: 3}
-  m_Name: Doombringer's Scythe
+  m_Name: Warpike
   m_EditorClassIdentifier: 
-  description: A sinister scythe forged by the hands of the netherworld itself, its
-    blade hungers for the souls of the living.
-  value: 100
-  weight: 5
-  slot: 3
+  description: A long spear with a narrow blade, designed for thrusting attacks and
+    keeping enemies at a distance on the battlefield.
+  value: 10
+  weight: 3
+  slot: 2
   sprite: {fileID: 0}
-  vigourMod: -10
-  strengthMod: 20
-  dexterityMod: 1
+  vigourMod: 0
+  strengthMod: 3
+  dexterityMod: 2
   intelligenceMod: 0
-  luckMod: 1
+  luckMod: 0
   accuracy: 0

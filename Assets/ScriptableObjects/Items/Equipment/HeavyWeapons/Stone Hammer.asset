@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e42a4c8dbc6a6d640aabd198bda2c6f9, type: 3}
-  m_Name: Runic Club
+  m_Name: Stone Hammer
   m_EditorClassIdentifier: 
-  description: A large wooden club with glowing runes of magical destruction engraved
-    in the shaft.
-  value: 10
-  weight: 4
+  description: A hammer with a stone head, commonly used by masons and miners, but
+    repurposed for battle due to its effectiveness.
+  value: 20
+  weight: 6
   slot: 3
   sprite: {fileID: 0}
-  vigourMod: -1
-  strengthMod: 2
-  dexterityMod: 1
-  intelligenceMod: 10
-  luckMod: -2
+  vigourMod: 0
+  strengthMod: 10
+  dexterityMod: -2
+  intelligenceMod: 0
+  luckMod: 0
   accuracy: -2

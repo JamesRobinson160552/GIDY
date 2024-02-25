@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77a5e6aa6339ca4479aba76e446d900f, type: 3}
   m_Name: HeavyArmour
   m_EditorClassIdentifier: 
-  description: 
+  description: Heavy Armour that limits movement, but protects the wearer.
   value: 1
   weight: 3
   slot: 1
