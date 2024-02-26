@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class Task : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private TaskManager manager;
+
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        manager = transform.parent.gameObject.GetComponent<TaskManager>();
     }
 }
