@@ -5,9 +5,12 @@ using UnityEngine;
 public class Task : MonoBehaviour
 {
     private TaskManager manager;
-
-    void Start()
+    public int taskNumber;
+    
+    public void Complete()
     {
         manager = transform.parent.gameObject.GetComponent<TaskManager>();
+        manager.CompleteTask(taskNumber);
+        Destroy(this.gameObject);
     }
 }
