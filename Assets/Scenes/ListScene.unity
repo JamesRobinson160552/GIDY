@@ -3318,7 +3318,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1351750161}
         m_TargetAssemblyTypeName: TaskManager, Assembly-CSharp
-        m_MethodName: CreateNewTask
+        m_MethodName: MakeEmptyTask
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3529,8 +3529,10 @@ MonoBehaviour:
   playerLevel: 0
   exp: 0
   nextLevelThreshold: 0
+  gold: 0
   levelText: {fileID: 2021617284}
   expBar: {fileID: 1833831009}
+  goldText: {fileID: 694653324}
 --- !u!4 &1364123424
 Transform:
   m_ObjectHideFlags: 0

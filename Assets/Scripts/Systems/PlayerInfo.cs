@@ -11,13 +11,17 @@ public class PlayerInfo : MonoBehaviour
     public int playerLevel;
     public int exp;
     public float nextLevelThreshold;
+    public int gold;
     [SerializeField] private TextMeshProUGUI levelText;
     [SerializeField] private Slider expBar;
+    [SerializeField] private TextMeshProUGUI goldText;
 
     public void Awake()
     {
         playerLevel = PlayerPrefs.GetInt("playerLevel", 1);
         exp = PlayerPrefs.GetInt("exp", 0);
+        gold = PlayerPrefs.GetInt("gold", 0);
+        goldText.text = "$" + gold.ToString();
         SetLevelThreshold();
         SetExpBar();
     }

@@ -1,5 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
+using System.IO;
+using System;
 using UnityEngine;
 
 public class TaskManager : MonoBehaviour
@@ -9,8 +12,21 @@ public class TaskManager : MonoBehaviour
     [SerializeField] private Vector3 topOfList;
     [SerializeField] private float taskGap = 200.0f;
     [SerializeField] private PlayerInfo playerInfo;
-    public void CreateNewTask()
+
+    void Awake()
     {
+        LoadTasks();
+    }
+
+    //This buffer is needed since buttons cant call methods with multiple parameters
+    public void MakeEmptyTask() 
+    {
+        CreateNewTask("Placeholder", "04-04-2002");
+    }
+
+    public void CreateNewTask(string taskName, string dueDate)
+    {
+        Debug.Log("Making new task");
         int numTasks = 0;
 
         //Get Transform of lowest task in list
@@ -42,7 +58,12 @@ public class TaskManager : MonoBehaviour
             Debug.Log("Task put at " + newTask.transform.localPosition.ToString());
         }
         numTasks++;
-        newTask.GetComponent<Task>().taskNumber = numTasks;
+        Task taskScript = newTask.GetComponent<Task>();
+        taskScript. taskNumber = numTasks;
+        taskScript.taskName = taskName;
+        taskScript.dueDateString = dueDate;
+
+        SaveTasks();
     }
 
     public void CompleteTask(int removedTaskNumber)
@@ -62,5 +83,39 @@ public class TaskManager : MonoBehaviour
                 );
             }
         }
+    }
+
+    private string GetPath()
+    {
+        #if UNITY_EDITOR
+        return Application.dataPath+"/Data/"+"tasks.txt";
+        #elif UNITY_ANDROID
+        return Application.persistentDataPath+"tasks.txt";
+        #else
+        return Application.persistentDataPath+"/tasks.txt";
+        #endif
+    }
+
+    public void SaveTasks()
+    {
+        StreamWriter writer = new StreamWriter(GetPath(), true);
+        foreach (Transform taskTransform in taskContainer.transform)
+        {
+            Task task = taskTransform.gameObject.GetComponent<Task>();
+            writer.WriteLine(task.WriteToString());
+        }
+        writer.Close();
+    }
+
+    public void LoadTasks()
+    {
+        StreamReader reader = new StreamReader(GetPath());
+        while (reader.Peek() >= 0)
+        {
+            string[] taskInfo = reader.ReadLine().Split(',');
+            Debug.Log(taskInfo);
+            
+        }
+        reader.Close();
     }
 }
