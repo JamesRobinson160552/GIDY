@@ -651,6 +651,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   taskNumber: 0
+  taskName: 
+  dueDateString: 
+  mainView: {fileID: 8735680869323885272}
+  editView: {fileID: 8271130579422540589}
+  taskNameText: {fileID: 8862383561531845734}
+  dueDateText: {fileID: 378196640351688594}
 --- !u!1 &3460173710378626279
 GameObject:
   m_ObjectHideFlags: 0
@@ -770,7 +776,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2713077212123163966}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8878002862932687959}
+        m_TargetAssemblyTypeName: Task, Assembly-CSharp
+        m_MethodName: EnterEditView
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3547136200145630357
 GameObject:
   m_ObjectHideFlags: 0
@@ -1654,7 +1672,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5647571461423786284}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8878002862932687959}
+        m_TargetAssemblyTypeName: Task, Assembly-CSharp
+        m_MethodName: SaveEdits
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6561626761125109426
 GameObject:
   m_ObjectHideFlags: 0
@@ -1774,7 +1804,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6963842810340394791}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8878002862932687959}
+        m_TargetAssemblyTypeName: Task, Assembly-CSharp
+        m_MethodName: RemoveTask
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6835587992715679063
 GameObject:
   m_ObjectHideFlags: 0
