@@ -62,9 +62,9 @@ public class TaskManager : MonoBehaviour
         SaveTasks();
     }
 
-    public void CompleteTask(int removedTaskNumber)
+    public void CompleteTask(int removedTaskNumber, bool wasFinished)
     {
-        playerInfo.GainExp(10);
+        if (wasFinished) { playerInfo.GainExp(10); }
         //Move all tasks below removed task up in the list
         foreach (Transform taskTransform in taskContainer.transform)
         {

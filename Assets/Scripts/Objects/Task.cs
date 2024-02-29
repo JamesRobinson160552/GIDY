@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class Task : MonoBehaviour
@@ -13,11 +14,26 @@ public class Task : MonoBehaviour
     [SerializeField] private GameObject editView;
     [SerializeField] private TextMeshProUGUI taskNameText;
     [SerializeField] private TextMeshProUGUI dueDateText;
+    [SerializeField] private TMP_InputField taskNameEditText;
+    [SerializeField] private TMP_InputField dueDateEditText;
+
+    void Start()
+    {
+        SetInfo();
+    }
+
+    void SetInfo()
+    {
+        taskNameText.text = taskName;
+        dueDateText.text = dueDateString;
+        taskNameEditText.text= taskName;
+        dueDateEditText.text = dueDateString;
+    }
 
     public void Complete()
     {
         manager = transform.parent.gameObject.GetComponent<TaskManager>();
-        manager.CompleteTask(taskNumber);
+        manager.CompleteTask(taskNumber, true);
         Destroy(this.gameObject);
     }
 
@@ -29,6 +45,8 @@ public class Task : MonoBehaviour
     public void EnterEditView()
     {
         Debug.Log("Entering edit view");
+        dueDateEditText.text = dueDateString;
+        taskNameEditText.text = taskName;
         editView.SetActive(true);
         mainView.SetActive(false);
     }
@@ -38,6 +56,9 @@ public class Task : MonoBehaviour
         Debug.Log("Saved Edits");
         editView.SetActive(false);
         mainView.SetActive(true);
+        dueDateString = dueDateEditText.text;
+        taskName = taskNameEditText.text;
+        SetInfo();
     }
 
     public void DiscardEdits()
@@ -50,5 +71,6 @@ public class Task : MonoBehaviour
     public void RemoveTask()
     {
         Debug.Log("Removing Task");
+        manager.CompleteTask(taskNumber, false);
     }
 }

@@ -657,6 +657,8 @@ MonoBehaviour:
   editView: {fileID: 8271130579422540589}
   taskNameText: {fileID: 8862383561531845734}
   dueDateText: {fileID: 378196640351688594}
+  taskNameEditText: {fileID: 2955853274947484120}
+  dueDateEditText: {fileID: 2864513834869076419}
 --- !u!1 &3460173710378626279
 GameObject:
   m_ObjectHideFlags: 0
