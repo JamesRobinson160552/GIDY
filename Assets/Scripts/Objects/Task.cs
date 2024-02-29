@@ -20,6 +20,7 @@ public class Task : MonoBehaviour
     void Start()
     {
         SetInfo();
+        manager = transform.parent.gameObject.GetComponent<TaskManager>();
     }
 
     void SetInfo()
@@ -32,7 +33,6 @@ public class Task : MonoBehaviour
 
     public void Complete()
     {
-        manager = transform.parent.gameObject.GetComponent<TaskManager>();
         manager.CompleteTask(taskNumber, true);
         Destroy(this.gameObject);
     }
@@ -72,5 +72,6 @@ public class Task : MonoBehaviour
     {
         Debug.Log("Removing Task");
         manager.CompleteTask(taskNumber, false);
+        Destroy(this.gameObject);
     }
 }
