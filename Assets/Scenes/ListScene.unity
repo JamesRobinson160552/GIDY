@@ -4628,6 +4628,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8878002862932687959, guid: 248c3b0d280b2314ca69a03ce48902ab, type: 3}
+      propertyPath: taskName
+      value: Template
+      objectReference: {fileID: 0}
+    - target: {fileID: 8878002862932687959, guid: 248c3b0d280b2314ca69a03ce48902ab, type: 3}
+      propertyPath: dueDateString
+      value: 2025-01-01
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

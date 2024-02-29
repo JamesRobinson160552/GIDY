@@ -4,6 +4,7 @@ using System.Text;
 using System.IO;
 using System;
 using UnityEngine;
+using UnityEditor;
 
 public class TaskManager : MonoBehaviour
 {
@@ -12,10 +13,12 @@ public class TaskManager : MonoBehaviour
     [SerializeField] private Vector3 topOfList;
     [SerializeField] private float taskGap = 200.0f;
     [SerializeField] private PlayerInfo playerInfo;
+    public int numTasks;
 
     void Awake()
     {
         LoadTasks();
+        AssetDatabase.Refresh();
     }
 
     //This buffer is needed since buttons cant call methods with multiple parameters
@@ -26,42 +29,35 @@ public class TaskManager : MonoBehaviour
 
     public void CreateNewTask(string taskName, string dueDate)
     {
-        Debug.Log("Making new task");
-        int numTasks = 0;
+        Vector3 newTaskPosition = new Vector3(0,0,0);
+        numTasks = taskContainer.transform.childCount;
+        Debug.Log(numTasks.ToString() + " tasks in list");
 
-        //Get Transform of lowest task in list
-        Transform lastTaskTransform = null;
-        foreach (Transform task in taskContainer.transform)
+        if (numTasks == 0)
         {
-            numTasks++;
-            lastTaskTransform = task;
-        }
-
-        GameObject newTask = Instantiate(taskPrefab, new Vector3(0,0,0), Quaternion.identity);
-        newTask.transform.SetParent(taskContainer.transform);
-        newTask.transform.localScale = new Vector3(1,1,1);
-
-        if (lastTaskTransform == null) //no tasks in list
-        {
-            newTask.transform.position = topOfList;
+            newTaskPosition = topOfList;
         }
 
         else
         {
-            //Put new task below last task
-            Vector3 newPosition = new Vector3(
-                lastTaskTransform.localPosition.x, 
-                lastTaskTransform.localPosition.y-taskGap,
-                lastTaskTransform.localPosition.z);
-            Debug.Log("New Position is " + newPosition.ToString());
-            newTask.transform.localPosition = newPosition;
-            Debug.Log("Task put at " + newTask.transform.localPosition.ToString());
+            Transform lastTaskTransform = null;
+            foreach (Transform task in taskContainer.transform)
+            {
+                lastTaskTransform = task;
+            }
+            newTaskPosition = new Vector3(0, lastTaskTransform.localPosition.y - taskGap, 0);
         }
+ 
+        GameObject newTask = Instantiate(taskPrefab, new Vector3(0,0,0), Quaternion.identity);
+        newTask.transform.SetParent(taskContainer.transform);
+        newTask.transform.localScale = new Vector3(1,1,1);
+        newTask.transform.localPosition = newTaskPosition;
+
         numTasks++;
         Task taskScript = newTask.GetComponent<Task>();
-        taskScript. taskNumber = numTasks;
         taskScript.taskName = taskName;
         taskScript.dueDateString = dueDate;
+        taskScript.taskNumber = numTasks;
 
         SaveTasks();
     }
@@ -83,6 +79,7 @@ public class TaskManager : MonoBehaviour
                 );
             }
         }
+        SaveTasks();
     }
 
     private string GetPath()
@@ -98,24 +95,39 @@ public class TaskManager : MonoBehaviour
 
     public void SaveTasks()
     {
-        StreamWriter writer = new StreamWriter(GetPath(), true);
-        foreach (Transform taskTransform in taskContainer.transform)
+        using (var stream = new FileStream(GetPath(), FileMode.Truncate))
         {
-            Task task = taskTransform.gameObject.GetComponent<Task>();
-            writer.WriteLine(task.WriteToString());
+            using (StreamWriter writer = new StreamWriter(stream))
+            {
+                foreach (Transform taskTransform in taskContainer.transform)
+                {
+                    Task task = taskTransform.gameObject.GetComponent<Task>();
+                    writer.WriteLine(task.WriteToString());
+                }
+                writer.Close();
+            }
+            stream.Close();
         }
-        writer.Close();
     }
 
     public void LoadTasks()
     {
+        //Get tasks from file
         StreamReader reader = new StreamReader(GetPath());
+        List<string> tasks = new List<string>();
         while (reader.Peek() >= 0)
         {
-            string[] taskInfo = reader.ReadLine().Split(',');
-            Debug.Log(taskInfo);
-            
+            tasks.Add(reader.ReadLine());
         }
         reader.Close();
+
+        //Create tasks in game
+        foreach (string task in tasks)
+        {
+            string[] data = task.Split(',');
+            string n = data[0];
+            string d = data[1];
+            CreateNewTask(n, d);
+        }
     }
 }
