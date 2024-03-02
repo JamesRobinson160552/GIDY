@@ -11,7 +11,6 @@ public class ItemDisplay : MonoBehaviour
     [SerializeField] private TextMeshProUGUI descriptionText;
     [SerializeField] private TextMeshProUGUI statsText;
     [SerializeField] private Image image;
-    [SerializeField] private Button buyButton;
     private ShopItem currentShopItem;
 
     public void ShowItem(ShopItem shopItem)
