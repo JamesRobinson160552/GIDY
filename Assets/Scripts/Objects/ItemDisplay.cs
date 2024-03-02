@@ -11,14 +11,17 @@ public class ItemDisplay : MonoBehaviour
     [SerializeField] private TextMeshProUGUI descriptionText;
     [SerializeField] private TextMeshProUGUI statsText;
     [SerializeField] private Image image;
+    [SerializeField] private Button buyButton;
+    private ShopItem currentShopItem;
 
-    public void ShowItem(BaseItem item)
+    public void ShowItem(ShopItem shopItem)
     {
-        nameText.text = item.itemName;
-        priceText.text = "$" + item.value.ToString();
-        descriptionText.text = item.description;
-        if ((BaseEquipment)item) { statsText.text = GetStats((BaseEquipment)item); }
-        image.sprite = item.itemSprite;
+        currentShopItem = shopItem;
+        nameText.text = shopItem.item.itemName;
+        priceText.text = "$" + shopItem.item.value.ToString();
+        descriptionText.text = shopItem.item.description;
+        if ((BaseEquipment)shopItem.item) { statsText.text = GetStats((BaseEquipment)shopItem.item); }
+        image.sprite = shopItem.item.itemSprite;
     }
 
     private string GetStats(BaseEquipment item)
@@ -30,5 +33,10 @@ public class ItemDisplay : MonoBehaviour
             " | I: " + item.intelligenceMod.ToString() +
             " | L: " + item.luckMod.ToString()
         );
+    }
+
+    public void Buy()
+    {
+        currentShopItem.Buy();
     }
 }

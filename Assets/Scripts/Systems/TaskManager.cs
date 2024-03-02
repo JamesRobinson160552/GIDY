@@ -17,8 +17,8 @@ public class TaskManager : MonoBehaviour
 
     void Awake()
     {
-        LoadTasks();
         AssetDatabase.Refresh();
+        LoadTasks();
     }
 
     //This buffer is needed since buttons cant call methods with multiple parameters

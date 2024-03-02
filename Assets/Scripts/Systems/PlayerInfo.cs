@@ -55,4 +55,11 @@ public class PlayerInfo : MonoBehaviour
         nextLevelThreshold = Mathf.Pow((playerLevel/expRequirementModifier), expRequirementGrowthRate);
         levelText.text = playerLevel.ToString();
     }
+
+    public void SetGold(int newGold)
+    {
+        gold = newGold;
+        goldText.text = "$" + gold.ToString();
+        PlayerPrefs.SetInt("gold", gold);
+    }
 }
