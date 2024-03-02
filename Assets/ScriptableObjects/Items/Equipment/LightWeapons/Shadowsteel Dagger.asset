@@ -12,11 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e42a4c8dbc6a6d640aabd198bda2c6f9, type: 3}
   m_Name: Shadowsteel Dagger
   m_EditorClassIdentifier: 
+  itemName: 
   description: A dagger forged from shadowsteel, its blade glimmers with darkness.
   value: 10
   weight: 1
+  itemSprite: {fileID: 21300000, guid: ef55faf626b4d24438405514038e0729, type: 3}
   slot: 2
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: ef55faf626b4d24438405514038e0729, type: 3}
   vigourMod: -2
   strengthMod: 0
   dexterityMod: 5
