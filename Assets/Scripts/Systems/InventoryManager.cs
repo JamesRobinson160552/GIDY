@@ -19,15 +19,16 @@ public class InventoryManager : MonoBehaviour
     List<BaseItem> playerEquippables = new List<BaseItem>();
     List<BaseItem> playerConsumables = new List<BaseItem>();
     public List<string> inventoryList = new List<string>();
+    [SerializeField] private SalesManager salesManager;
 
     void Awake()
     {
-        AssetDatabase.Refresh();
         LoadInventory();
     }
 
     public void LoadInventory()
     {
+        AssetDatabase.Refresh();
         inventoryList = new List<string>();
         //Get tasks from file
         StreamReader reader = new StreamReader(GetPath());
@@ -92,6 +93,7 @@ public class InventoryManager : MonoBehaviour
     public void AddItem(BaseItem item)
     {
         inventory.Add(item);
+        //salesManager.AddSellable(item);
         SaveInventory();
     }
 

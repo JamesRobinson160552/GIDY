@@ -7,7 +7,6 @@ using TMPro;
 
 public class ShopItem : MonoBehaviour
 {
-    //TODO: Get random piece of equipment to display
     public BaseItem item;
     [SerializeField] private Image displayImage;
     [SerializeField] private TextMeshProUGUI displayPrice;

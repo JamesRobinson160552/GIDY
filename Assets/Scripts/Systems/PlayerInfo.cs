@@ -1,7 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
+using System.IO;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEditor;
 using TMPro;
 
 public class PlayerInfo : MonoBehaviour
@@ -15,6 +19,8 @@ public class PlayerInfo : MonoBehaviour
     [SerializeField] private TextMeshProUGUI levelText;
     [SerializeField] private Slider expBar;
     [SerializeField] private TextMeshProUGUI goldText;
+    [SerializeField] private InventoryManager inventory;
+    public BaseItem[] equipped = new BaseItem[5];
 
     public void Awake()
     {
@@ -62,4 +68,66 @@ public class PlayerInfo : MonoBehaviour
         goldText.text = "$" + gold.ToString();
         PlayerPrefs.SetInt("gold", gold);
     }
+
+    private string GetPath()
+    {
+        #if UNITY_EDITOR
+        return Application.dataPath+"/Data/"+"equipped.txt";
+        #elif UNITY_ANDROID
+        return Application.persistentDataPath+"equipped.txt";
+        #else
+        return Application.persistentDataPath+"/equipped.txt";
+        #endif
+    }
+
+    public void SaveEquipped()
+    {
+        using (var stream = new FileStream(GetPath(), FileMode.Truncate))
+        {
+            using (StreamWriter writer = new StreamWriter(stream))
+            {
+                foreach (BaseItem i in equipped)
+                {
+                    writer.WriteLine(i.itemName);
+                }
+                writer.Close();
+            }
+            stream.Close();
+        }
+    }
+
+    public void LoadEquipped()
+    {
+        AssetDatabase.Refresh();
+        List<string> equippedList = new List<string>();
+        StreamReader reader = new StreamReader(GetPath());
+        
+        while (reader.Peek() >= 0)
+        {
+            equippedList.Add(reader.ReadLine());
+        }
+        reader.Close();
+
+        equipped[0] = CheckArray(inventory.armour, equippedList[0]);
+        equipped[1] = CheckArray(inventory.helmets, equippedList[1]);
+        equipped[2] = CheckArray(inventory.lightWeapons, equippedList[2]);
+        equipped[3] = CheckArray(inventory.heavyWeapons, equippedList[3]);
+        equipped[4] = CheckArray(inventory.magicWeapons, equippedList[4]);
+    }
+
+    private BaseItem CheckArray(BaseItem[] itemType, string nameOfItem)
+    {
+        for (int i=0; i<itemType.Length; i++)
+        {
+            if (itemType[i] != null)
+            {
+                if (itemType[i].itemName == nameOfItem)
+                {
+                    return itemType[i];
+                }
+            }
+        }
+        return null;
+    }
+
 }

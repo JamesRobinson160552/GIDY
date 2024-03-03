@@ -31,7 +31,7 @@ public class TaskManager : MonoBehaviour
     {
         Vector3 newTaskPosition = new Vector3(0,0,0);
         numTasks = taskContainer.transform.childCount;
-        Debug.Log(numTasks.ToString() + " tasks in list");
+        //Debug.Log(numTasks.ToString() + " tasks in list");
 
         if (numTasks == 0)
         {
