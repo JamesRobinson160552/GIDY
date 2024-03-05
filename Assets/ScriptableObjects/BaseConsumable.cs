@@ -7,9 +7,10 @@ public class BaseConsumable : BaseItem
 {
     [SerializeField] public int healthRestore;
     [SerializeField] public int duration;
-    [SerializeField] public int vigourMod;
-    [SerializeField] public int strengthMod;
-    [SerializeField] public int dexterityMod;
-    [SerializeField] public int intelligenceMod;
-    [SerializeField] public int luckMod;
+
+    public int[] ToArray()
+    {
+        int[] arr = {vigourMod, strengthMod, dexterityMod, intelligenceMod, luckMod, healthRestore, duration};
+        return arr;
+    }
 }

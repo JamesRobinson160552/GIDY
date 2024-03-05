@@ -17,7 +17,7 @@ public class EquippedDisplay : MonoBehaviour
         currentItem = itemToDisplay;
         nameText.text = currentItem.currentlyEquipped.itemName;
         descriptionText.text = currentItem.currentlyEquipped.description;
-        statsText.text = GetStats(currentItem.currentlyEquipped);
+        if ((BaseEquipment)itemToDisplay.currentlyEquipped) { statsText.text = GetStats((BaseEquipment)itemToDisplay.currentlyEquipped); }
         image.sprite = currentItem.currentlyEquipped.itemSprite;
     }
 

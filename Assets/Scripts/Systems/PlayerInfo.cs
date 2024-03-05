@@ -86,9 +86,16 @@ public class PlayerInfo : MonoBehaviour
         {
             using (StreamWriter writer = new StreamWriter(stream))
             {
-                foreach (BaseItem i in equipped)
+                for (int i=0; i<5; i++)
                 {
-                    writer.WriteLine(i.itemName);
+                    if (equipped[i])
+                    {
+                        writer.WriteLine(equipped[i].itemName);
+                    }
+                    else
+                    {
+                        writer.WriteLine("");
+                    }
                 }
                 writer.Close();
             }
@@ -101,7 +108,7 @@ public class PlayerInfo : MonoBehaviour
         AssetDatabase.Refresh();
         List<string> equippedList = new List<string>();
         StreamReader reader = new StreamReader(GetPath());
-        
+
         while (reader.Peek() >= 0)
         {
             equippedList.Add(reader.ReadLine());

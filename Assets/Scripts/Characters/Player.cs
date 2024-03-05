@@ -6,19 +6,31 @@ public class Player : MonoBehaviour
 {
     public int level;
     [SerializeField] public BaseCharacter baseStats;
-    [SerializeField] public BaseArmour helmet;
-    [SerializeField] public BaseArmour armour;
-    [SerializeField] public BaseWeapon lightWeapon;
-    [SerializeField] public BaseWeapon heavyWeapon;
-    [SerializeField] public BaseWeapon magicWeapon;
+    [SerializeField] public BaseItem helmet;
+    [SerializeField] public BaseItem armour;
+    [SerializeField] public BaseItem lightWeapon;
+    [SerializeField] public BaseItem heavyWeapon;
+    [SerializeField] public BaseItem magicWeapon;
     public int currentHealth;
     public int[] totalStats;
     [SerializeField] private HealthBar healthBar;
     [SerializeField] private BattleManager battleManager;
+    [SerializeField] private PlayerInfo playerInfo;
 
     void Awake()
     {
+        if (!playerInfo) { playerInfo = GameObject.Find("PlayerInfo").GetComponent<PlayerInfo>(); }
+        GetEquipment();
         InitializeStats();
+    }
+
+    private void GetEquipment()
+    {
+        helmet = playerInfo.equipped[0];
+        armour = playerInfo.equipped[1];
+        lightWeapon = playerInfo.equipped[2];
+        heavyWeapon = playerInfo.equipped[3];
+        magicWeapon = playerInfo.equipped[4];
     }
 
     private void InitializeStats()
@@ -35,11 +47,12 @@ public class Player : MonoBehaviour
         healthBar.InitializeHealthBar(baseStats.characterName, totalStats[0]);
     }
 
-    private int[] ApplyEquimentBonus(int[] stats, BaseEquipment equipment)
+    private int[] ApplyEquimentBonus(int[] stats, BaseItem equipment)
     {
         int[] buffs = equipment.ToArray();
-        for (int i=0; i<stats.Length; i++)
+        for (int i=0; i<buffs.Length; i++)
         {
+            Debug.Log(buffs[i]);
             stats[i] += buffs[i];
         }
         return stats;

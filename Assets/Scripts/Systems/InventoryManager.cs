@@ -40,12 +40,15 @@ public class InventoryManager : MonoBehaviour
 
         foreach (string s in inventoryList)
         {
-            CheckArray(armour, s);
-            CheckArray(heavyWeapons, s);
-            CheckArray(helmets, s);
-            CheckArray(lightWeapons, s);
-            CheckArray(magicWeapons, s);
-            CheckArray(consumables, s);
+            if (s.Length > 3)
+            {
+                CheckArray(armour, s);
+                CheckArray(heavyWeapons, s);
+                CheckArray(helmets, s);
+                CheckArray(lightWeapons, s);
+                CheckArray(magicWeapons, s);
+                CheckArray(consumables, s);
+            }
         }
     }
 
@@ -93,7 +96,7 @@ public class InventoryManager : MonoBehaviour
     public void AddItem(BaseItem item)
     {
         inventory.Add(item);
-        //salesManager.AddSellable(item);
+        salesManager.AddSellable(item);
         SaveInventory();
     }
 
