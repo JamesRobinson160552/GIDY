@@ -17,7 +17,7 @@ public class TaskManager : MonoBehaviour
 
     void Awake()
     {
-        AssetDatabase.Refresh();
+        //AssetDatabase.Refresh();
         LoadTasks();
     }
 

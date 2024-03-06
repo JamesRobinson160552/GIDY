@@ -105,7 +105,7 @@ public class PlayerInfo : MonoBehaviour
 
     public void LoadEquipped()
     {
-        AssetDatabase.Refresh();
+        //AssetDatabase.Refresh();
         List<string> equippedList = new List<string>();
         StreamReader reader = new StreamReader(GetPath());
 

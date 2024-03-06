@@ -28,7 +28,7 @@ public class InventoryManager : MonoBehaviour
 
     public void LoadInventory()
     {
-        AssetDatabase.Refresh();
+        //AssetDatabase.Refresh();
         inventoryList = new List<string>();
         //Get tasks from file
         StreamReader reader = new StreamReader(GetPath());
