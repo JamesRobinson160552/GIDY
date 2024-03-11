@@ -35,8 +35,16 @@ public class Player : MonoBehaviour
 
     private void InitializeStats()
     {
-        totalStats = new int[] {baseStats.vigour, baseStats.strength, baseStats.dexterity, baseStats.intelligence, baseStats.luck};
-        
+        float levelMultiplier = playerInfo.playerLevel * 0.4f;
+
+        totalStats = new int[] {
+            (int)(levelMultiplier * baseStats.vigour), 
+            (int)(levelMultiplier * baseStats.strength), 
+            (int)(levelMultiplier * baseStats.dexterity), 
+            (int)(levelMultiplier * baseStats.intelligence), 
+            (int)(levelMultiplier * baseStats.luck)
+        };
+
         if (helmet) {totalStats = ApplyEquimentBonus(totalStats, helmet);}
         if (armour) {totalStats = ApplyEquimentBonus(totalStats, armour);}
         if (lightWeapon) {totalStats = ApplyEquimentBonus(totalStats, lightWeapon);}

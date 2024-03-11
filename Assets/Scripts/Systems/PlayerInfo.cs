@@ -54,6 +54,7 @@ public class PlayerInfo : MonoBehaviour
         {
             expBar.value = exp;
         }
+        PlayerPrefs.SetInt("exp", exp);
     }
 
     public void SetLevelThreshold()

@@ -1,14 +1,5 @@
-<<<<<<< Updated upstream
 test,04-04-2002
 edit2,04-04-2002
 edit3,04-04-2002
 edit4,04-04-2002
 Placeholder,04-04-2002
-=======
-edit4,04-04-2002
-Placeholder,04-04-2002
-Placeholder,04-04-2002
-Placeholder,04-04-2002
-Placeholder,04-04-2002
-Placeholder,04-04-2002
->>>>>>> Stashed changes

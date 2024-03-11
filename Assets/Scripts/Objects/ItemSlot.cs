@@ -16,7 +16,7 @@ public class ItemSlot : MonoBehaviour
     private void Start()
     {
         currentlyEquipped = (BaseEquipment)playerInfo.equipped[slotNumber];
-        sprite.sprite = currentlyEquipped.itemSprite;
+        if (currentlyEquipped) sprite.sprite = currentlyEquipped.itemSprite;
     }
 
     public void Equip(BaseItem item)
