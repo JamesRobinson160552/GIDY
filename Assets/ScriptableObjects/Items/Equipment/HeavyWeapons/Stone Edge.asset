@@ -12,15 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e42a4c8dbc6a6d640aabd198bda2c6f9, type: 3}
   m_Name: Stone Edge
   m_EditorClassIdentifier: 
+  itemName: Stone Edge
   description: A hulking mass of stone crudely affixed to a wooden haft, more akin
     to a slab of rock than a finely crafted blade.
   value: 25
   weight: 8
-  slot: 3
-  sprite: {fileID: 0}
+  itemSprite: {fileID: 0}
+  slotNumber: 0
   vigourMod: 0
   strengthMod: 10
   dexterityMod: -2
   intelligenceMod: 0
   luckMod: -2
+  slot: 3
   accuracy: -2

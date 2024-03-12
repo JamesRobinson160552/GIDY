@@ -12,14 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77a5e6aa6339ca4479aba76e446d900f, type: 3}
   m_Name: Iron Helm
   m_EditorClassIdentifier: 
+  itemName: Iron Helm
   description: Helmet made of iron, providing solid protection against blunt force
     trauma and falling debris.
   value: 1
   weight: 2
-  slot: 0
-  sprite: {fileID: 0}
+  itemSprite: {fileID: 0}
+  slotNumber: 0
   vigourMod: 2
   strengthMod: 0
   dexterityMod: 0
   intelligenceMod: 0
   luckMod: 0
+  slot: 0

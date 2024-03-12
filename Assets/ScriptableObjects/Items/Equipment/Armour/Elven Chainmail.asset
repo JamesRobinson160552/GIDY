@@ -12,14 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77a5e6aa6339ca4479aba76e446d900f, type: 3}
   m_Name: Elven Chainmail
   m_EditorClassIdentifier: 
+  itemName: Elven Chainmail
   description: Chainmail crafted by skilled elven artisans, providing exceptional
     defense while allowing for agile movements.
   value: 10
   weight: 4
-  slot: 1
-  sprite: {fileID: 0}
+  itemSprite: {fileID: 0}
+  slotNumber: 0
   vigourMod: 6
   strengthMod: 1
   dexterityMod: 1
   intelligenceMod: -2
   luckMod: -2
+  slot: 1

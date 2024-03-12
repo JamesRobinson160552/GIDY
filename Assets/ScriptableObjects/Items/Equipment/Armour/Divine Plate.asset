@@ -12,14 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77a5e6aa6339ca4479aba76e446d900f, type: 3}
   m_Name: Divine Plate
   m_EditorClassIdentifier: 
+  itemName: Divine Plate
   description: Plate armor blessed by divine beings, offering unparalleled protection
     and imbuing the wearer with divine favor.
   value: 100
   weight: 10
-  slot: 1
-  sprite: {fileID: 0}
+  itemSprite: {fileID: 0}
+  slotNumber: 0
   vigourMod: 10
   strengthMod: 1
   dexterityMod: -6
   intelligenceMod: 0
   luckMod: 3
+  slot: 1

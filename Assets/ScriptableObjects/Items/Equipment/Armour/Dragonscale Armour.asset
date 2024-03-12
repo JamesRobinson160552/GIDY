@@ -12,14 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77a5e6aa6339ca4479aba76e446d900f, type: 3}
   m_Name: Dragonscale Armour
   m_EditorClassIdentifier: 
+  itemName: Dragonscale Armour
   description: Armor crafted from the scales of a dragon, offering superior protection
     against fire and physical attacks.
   value: 10
   weight: 5
-  slot: 1
-  sprite: {fileID: 0}
+  itemSprite: {fileID: 0}
+  slotNumber: 0
   vigourMod: 5
   strengthMod: 0
   dexterityMod: -2
   intelligenceMod: 0
   luckMod: 0
+  slot: 1

@@ -12,14 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e42a4c8dbc6a6d640aabd198bda2c6f9, type: 3}
   m_Name: BasicLightWeapon
   m_EditorClassIdentifier: 
+  itemName: Basic Light Weapon
   description: test light weapon
   value: 1
   weight: 1
-  slot: 2
-  sprite: {fileID: 0}
+  itemSprite: {fileID: 0}
+  slotNumber: 0
   vigourMod: 0
   strengthMod: 0
-  dexterityMod: 5
+  dexterityMod: 1
   intelligenceMod: 0
   luckMod: 0
+  slot: 2
   accuracy: 0

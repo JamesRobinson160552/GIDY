@@ -12,14 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77a5e6aa6339ca4479aba76e446d900f, type: 3}
   m_Name: Helm of Eternal Wisdom
   m_EditorClassIdentifier: 
+  itemName: Helm of Eternal Wisdom
   description: ' Helm infused with ancient wisdom, granting the wearer unparalleled
     knowledge and insight into the mysteries of the universe.'
   value: 100
   weight: 3
-  slot: 0
-  sprite: {fileID: 0}
+  itemSprite: {fileID: 0}
+  slotNumber: 0
   vigourMod: 4
   strengthMod: 0
   dexterityMod: 0
   intelligenceMod: 8
   luckMod: 0
+  slot: 0

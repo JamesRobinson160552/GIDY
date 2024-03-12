@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e42a4c8dbc6a6d640aabd198bda2c6f9, type: 3}
   m_Name: Aurora Sickle
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: Aurora Sickle
   description: 
-  value: 0
+  value: 10
   weight: 0
   itemSprite: {fileID: 0}
-  slot: 0
-  sprite: {fileID: 0}
+  slotNumber: 2
   vigourMod: 0
-  strengthMod: 0
+  strengthMod: 3
   dexterityMod: 0
   intelligenceMod: 0
   luckMod: 0
+  slot: 2
   accuracy: 0

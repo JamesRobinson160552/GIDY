@@ -12,14 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77a5e6aa6339ca4479aba76e446d900f, type: 3}
   m_Name: Cloth Robes
   m_EditorClassIdentifier: 
+  itemName: Cloth Robes
   description: Lightweight robes made of cloth, favored by spellcasters for their
     comfort and flexibility.
   value: 1
   weight: 1
-  slot: 1
-  sprite: {fileID: 0}
+  itemSprite: {fileID: 0}
+  slotNumber: 0
   vigourMod: -1
   strengthMod: 0
   dexterityMod: 0
   intelligenceMod: 5
   luckMod: 0
+  slot: 1

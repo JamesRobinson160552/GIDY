@@ -38,16 +38,20 @@ public class InventoryManager : MonoBehaviour
         }
         reader.Close(); 
 
-        foreach (string s in inventoryList)
+        Debug.Log(inventoryList[0]);
+
+        for (int i=0; i<inventoryList.Count; i++)
         {
-            if (s.Length > 3)
+            string currentItem = inventoryList[i];
+            Debug.Log(currentItem);
+            if (currentItem.Length > 1)
             {
-                CheckArray(armour, s);
-                CheckArray(heavyWeapons, s);
-                CheckArray(helmets, s);
-                CheckArray(lightWeapons, s);
-                CheckArray(magicWeapons, s);
-                CheckArray(consumables, s);
+                CheckArray(armour, currentItem);
+                CheckArray(heavyWeapons, currentItem);
+                CheckArray(helmets, currentItem);
+                CheckArray(lightWeapons, currentItem);
+                CheckArray(magicWeapons, currentItem);
+                CheckArray(consumables, currentItem);
             }
         }
     }

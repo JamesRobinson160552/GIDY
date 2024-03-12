@@ -12,14 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77a5e6aa6339ca4479aba76e446d900f, type: 3}
   m_Name: Arcane Robes
   m_EditorClassIdentifier: 
+  itemName: Arcane Robes
   description: ' Robes imbued with arcane enchantments, enhancing the wearer''s magical
     abilities while providing moderate protection.'
   value: 10
   weight: 1
-  slot: 1
-  sprite: {fileID: 0}
+  itemSprite: {fileID: 0}
+  slotNumber: 0
   vigourMod: -1
   strengthMod: -1
   dexterityMod: 1
   intelligenceMod: 12
   luckMod: 0
+  slot: 1

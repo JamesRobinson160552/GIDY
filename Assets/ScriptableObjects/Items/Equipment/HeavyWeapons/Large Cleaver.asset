@@ -12,15 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e42a4c8dbc6a6d640aabd198bda2c6f9, type: 3}
   m_Name: Large Cleaver
   m_EditorClassIdentifier: 
+  itemName: Large Cleaver
   description: A broad-bladed cleaver made of bronze, capable of delivering devastating
     slashes and hacking through armor.
   value: 25
   weight: 4
-  slot: 3
-  sprite: {fileID: 0}
+  itemSprite: {fileID: 0}
+  slotNumber: 0
   vigourMod: 1
   strengthMod: 3
   dexterityMod: 2
   intelligenceMod: 0
   luckMod: 0
+  slot: 3
   accuracy: 0

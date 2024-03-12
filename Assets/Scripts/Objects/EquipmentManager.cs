@@ -24,6 +24,7 @@ public class EquipmentManager : MonoBehaviour
 
     void Start()
     {
+        //AssetDatabase.Refresh();
         RefreshEquippables();
     }
 

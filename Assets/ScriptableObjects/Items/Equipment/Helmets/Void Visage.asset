@@ -12,14 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77a5e6aa6339ca4479aba76e446d900f, type: 3}
   m_Name: Void Visage
   m_EditorClassIdentifier: 
+  itemName: Void Visage
   description: Visage shrouded in darkness, granting the wearer the ability to see
     through illusions and resist mind-altering effects.
   value: 10
   weight: 1
-  slot: 0
-  sprite: {fileID: 0}
+  itemSprite: {fileID: 0}
+  slotNumber: 0
   vigourMod: 1
   strengthMod: 1
   dexterityMod: -2
   intelligenceMod: 3
   luckMod: 0
+  slot: 0
