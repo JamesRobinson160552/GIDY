@@ -24,7 +24,7 @@ public class TaskManager : MonoBehaviour
     //This buffer is needed since buttons cant call methods with multiple parameters
     public void MakeEmptyTask() 
     {
-        CreateNewTask("Placeholder", "04-04-2002");
+        CreateNewTask("", "");
     }
 
     public void CreateNewTask(string taskName, string dueDate)
