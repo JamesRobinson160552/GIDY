@@ -1,4 +1,5 @@
-Arcane Robes
 Helm of Eternal Wisdom
-Warhammer
 Cloth Robes
+Warhammer
+Helm of Eternal Wisdom
+Basic Armour
