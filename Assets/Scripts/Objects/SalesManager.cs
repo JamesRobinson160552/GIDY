@@ -29,6 +29,7 @@ public class SalesManager : MonoBehaviour
 
     public void Preview(SellableItem itemToDisplay)
     {
+        UiSounds.instance.PlaySound(0);
         preview.SetActive(true);
         currentItem = itemToDisplay;
         nameText.text = itemToDisplay.item.itemName;
@@ -51,6 +52,7 @@ public class SalesManager : MonoBehaviour
 
     public void Sell()
     {
+        UiSounds.instance.PlaySound(2);
         inventory.RemoveItem(currentItem.item);
         RemoveSellable(currentItem);
         playerInfo.SetGold(playerInfo.gold + (int)(0.7*currentItem.item.value));

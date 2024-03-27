@@ -21,6 +21,7 @@ public class SellableItem : MonoBehaviour
 
     public void Preview()
     {
+        UiSounds.instance.PlaySound(0);
         salesManager.Preview(this);
     }
 }

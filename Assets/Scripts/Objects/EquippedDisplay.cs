@@ -34,6 +34,7 @@ public class EquippedDisplay : MonoBehaviour
 
     public void Unequip()
     {
+        UiSounds.instance.PlaySound(1);
         currentItem.Unequip();
     }
 }

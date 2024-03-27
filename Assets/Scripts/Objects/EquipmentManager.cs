@@ -30,6 +30,7 @@ public class EquipmentManager : MonoBehaviour
 
     public void Preview(EquippableItem itemToDisplay)
     {
+        UiSounds.instance.PlaySound(0);
         preview.SetActive(true);
         currentItem = itemToDisplay;
         nameText.text = itemToDisplay.item.itemName;

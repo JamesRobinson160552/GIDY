@@ -19,6 +19,7 @@ public class EquippableItem: MonoBehaviour
 
     public void Preview()
     {
+        UiSounds.instance.PlaySound(0);
         equipmentManager.Preview(this);
     }
 }

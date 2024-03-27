@@ -21,6 +21,7 @@ public class ItemSlot : MonoBehaviour
 
     public void Equip(BaseItem item)
     {
+        UiSounds.instance.PlaySound(3);
         if (currentlyEquipped)
         {
             Unequip();
@@ -42,6 +43,7 @@ public class ItemSlot : MonoBehaviour
 
     public void Preview()
     {
+        UiSounds.instance.PlaySound(0);
         if (currentlyEquipped)
         {
             display.gameObject.SetActive(true);

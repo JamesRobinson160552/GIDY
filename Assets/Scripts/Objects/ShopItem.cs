@@ -29,12 +29,14 @@ public class ShopItem : MonoBehaviour
 
     public void PreviewBuy()
     {
+        UiSounds.instance.PlaySound(0);
         display.gameObject.SetActive(true);
         display.ShowItem(this);
     }
 
     public void Buy()
     {
+        UiSounds.instance.PlaySound(2);
         if (player.gold < item.value)
         {
             Debug.Log("Not Enough Gold!");

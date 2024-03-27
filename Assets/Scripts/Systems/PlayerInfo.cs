@@ -44,6 +44,7 @@ public class PlayerInfo : MonoBehaviour
         exp += expToGain;
         if (exp >= nextLevelThreshold)
         {
+            UiSounds.instance.PlaySound(5);
             playerLevel += 1;
             PlayerPrefs.SetInt("playerLevel", playerLevel);
             exp = Mathf.FloorToInt((float)exp - nextLevelThreshold);

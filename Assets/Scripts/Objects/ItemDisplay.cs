@@ -36,6 +36,7 @@ public class ItemDisplay : MonoBehaviour
 
     public void Buy()
     {
+        UiSounds.instance.PlaySound(2);
         currentShopItem.Buy();
     }
 }

@@ -33,6 +33,7 @@ public class Task : MonoBehaviour
 
     public void Complete()
     {
+        UiSounds.instance.PlaySound(4);
         manager.CompleteTask(taskNumber, true);
         Destroy(this.gameObject);
     }
@@ -44,6 +45,7 @@ public class Task : MonoBehaviour
 
     public void EnterEditView()
     {
+        UiSounds.instance.PlaySound(0);
         Debug.Log("Entering edit view");
         dueDateEditText.text = dueDateString;
         taskNameEditText.text = taskName;
