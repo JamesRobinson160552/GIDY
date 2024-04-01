@@ -13,14 +13,16 @@ MonoBehaviour:
   m_Name: Glacier Great Sword
   m_EditorClassIdentifier: 
   itemName: Glacier Great Sword
-  description: 
-  value: 0
-  weight: 0
-  itemSprite: {fileID: 0}
+  description: This great sword, infused with the chilling power of the glacier,
+    emanates a frosty aura as it cleaves through enemies, leaving behind a trail
+    of icy devastation and freezing cold with each swing.
+  value: 50
+  weight: 5
+  itemSprite: {fileID: 21300000, guid: f4e6767ca8c0a2247aa46e899e01d1c8, type: 3}
   slotNumber: 0
   vigourMod: 0
-  strengthMod: 0
-  dexterityMod: 0
+  strengthMod: 9
+  dexterityMod: -2
   intelligenceMod: 0
   luckMod: 0
   slot: 3

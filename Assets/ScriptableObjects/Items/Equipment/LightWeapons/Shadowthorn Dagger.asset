@@ -12,16 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e42a4c8dbc6a6d640aabd198bda2c6f9, type: 3}
   m_Name: Shadowthorn Dagger
   m_EditorClassIdentifier: 
-  itemName: 
-  description: 
-  value: 0
-  weight: 0
-  itemSprite: {fileID: 0}
-  slot: 0
-  sprite: {fileID: 0}
+  itemName: Shadowthorn Dagger
+  description: Fashioned from the thorns of ancient trees that whisper secrets of
+    the forest, this dagger is a favored weapon among stealthy hunters and guardians
+    of the wilderness. Its blade, veiled in shadow, strikes swiftly and silently,
+    leaving behind only the faintest echo of its deadly presence.
+  value: 500
+  weight: 2
+  itemSprite: {fileID: 21300000, guid: ef55faf626b4d24438405514038e0729, type: 3}
+  slotNumber: 0
   vigourMod: 0
   strengthMod: 0
-  dexterityMod: 0
+  dexterityMod: 12
   intelligenceMod: 0
   luckMod: 0
-  accuracy: 0
+  slot: 2
+  accuracy: 2

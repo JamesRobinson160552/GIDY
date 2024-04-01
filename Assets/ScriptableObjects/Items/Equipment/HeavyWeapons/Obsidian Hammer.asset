@@ -13,18 +13,17 @@ MonoBehaviour:
   m_Name: Obsidian Hammer
   m_EditorClassIdentifier: 
   itemName: Obsidian Hammer
-  description: Bathed in the blood of its enemies, this great sword thirsts for battle,
-    its blade singing a song of carnage and destruction. With each swing, it leaves
-    behind a trail of crimson death, empowering its wielder with the relentless fury
-    of a warrior consumed by the heat of battle.
-  value: 200
-  weight: 5
-  itemSprite: {fileID: 0}
+  description: Carved from obsidian, this stone hammer gleams with a dark, glassy
+    sheen. Its strikes are as swift and merciless as the depths of the abyss, shattering
+    armor and bone with each relentless blow.
+  value: 50
+  weight: 8
+  itemSprite: {fileID: 21300000, guid: 6711dbd048b65084187b23bbdc32bc0b, type: 3}
   slotNumber: 0
-  vigourMod: -3
-  strengthMod: 10
-  dexterityMod: 0
+  vigourMod: 0
+  strengthMod: 14
+  dexterityMod: -3
   intelligenceMod: 0
   luckMod: 0
   slot: 3
-  accuracy: 2
+  accuracy: -2

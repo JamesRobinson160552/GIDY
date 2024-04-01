@@ -13,15 +13,17 @@ MonoBehaviour:
   m_Name: Celestial Warhammer
   m_EditorClassIdentifier: 
   itemName: Celestial Warhammer
-  description: 
-  value: 0
-  weight: 0
-  itemSprite: {fileID: 0}
+  description: This warhammer, blessed by celestial beings, glows with ethereal light
+    as it strikes, imbuing its wielder with newfound wisdom and insight into the
+    mysteries of the universe.
+  value: 50
+  weight: 5
+  itemSprite: {fileID: 21300000, guid: 6711dbd048b65084187b23bbdc32bc0b, type: 3}
   slotNumber: 0
   vigourMod: 0
-  strengthMod: 0
+  strengthMod: 7
   dexterityMod: 0
-  intelligenceMod: 0
-  luckMod: 0
+  intelligenceMod: 2
+  luckMod: 2
   slot: 3
   accuracy: 0

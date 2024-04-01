@@ -13,15 +13,17 @@ MonoBehaviour:
   m_Name: Infernal Warpike
   m_EditorClassIdentifier: 
   itemName: Infernal Warpike
-  description: 
-  value: 0
-  weight: 0
-  itemSprite: {fileID: 0}
+  description: Bathed in the fires of the nether realm, this warpike smolders with
+    infernal heat, its wicked barbs piercing through armor with the fury of hellfire,
+    leaving enemies scorched and smoldering in its wake.
+  value: 50
+  weight: 4
+  itemSprite: {fileID: 21300000, guid: 971c2418becf07d46a7c5671b7d65299, type: 3}
   slotNumber: 0
   vigourMod: 0
-  strengthMod: 0
-  dexterityMod: 0
+  strengthMod: 4
+  dexterityMod: 3
   intelligenceMod: 0
-  luckMod: 0
+  luckMod: -2
   slot: 3
   accuracy: 0

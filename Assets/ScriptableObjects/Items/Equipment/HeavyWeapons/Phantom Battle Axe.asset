@@ -18,12 +18,12 @@ MonoBehaviour:
     and terrified as it cuts through them with spectral precision.
   value: 75
   weight: 0
-  itemSprite: {fileID: 0}
-  slot: 3
-  sprite: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: be37880cf00167a4da7995dc74f52e35, type: 3}
+  slotNumber: 0
   vigourMod: 0
   strengthMod: 5
   dexterityMod: 4
   intelligenceMod: 0
   luckMod: 0
+  slot: 3
   accuracy: 0

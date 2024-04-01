@@ -13,15 +13,16 @@ MonoBehaviour:
   m_Name: Infernal Great Sword
   m_EditorClassIdentifier: 
   itemName: Infernal Greatsword
-  description: 
-  value: 0
-  weight: 0
-  itemSprite: {fileID: 0}
+  description: A blade wreathed in infernal flames, each swing sears through the
+    air with the fury of the underworld.
+  value: 100
+  weight: 5
+  itemSprite: {fileID: 21300000, guid: f4e6767ca8c0a2247aa46e899e01d1c8, type: 3}
   slotNumber: 0
-  vigourMod: 0
-  strengthMod: 0
+  vigourMod: -2
+  strengthMod: 9
   dexterityMod: 0
   intelligenceMod: 0
-  luckMod: 0
+  luckMod: -2
   slot: 3
-  accuracy: 0
+  accuracy: 1

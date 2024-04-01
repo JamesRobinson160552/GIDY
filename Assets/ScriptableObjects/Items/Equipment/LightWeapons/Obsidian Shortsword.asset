@@ -12,16 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e42a4c8dbc6a6d640aabd198bda2c6f9, type: 3}
   m_Name: Obsidian Shortsword
   m_EditorClassIdentifier: 
-  itemName: 
-  description: 
-  value: 0
-  weight: 0
-  itemSprite: {fileID: 0}
-  slot: 0
-  sprite: {fileID: 0}
+  itemName: Obsidian Shortsword
+  description: Crafted from the blackest obsidian, this shortsword possesses a razor-sharp
+    edge that cuts through flesh and armor alike with brutal efficiency. Its dark
+    sheen strikes fear into the hearts of its foes, making it a formidable weapon
+    on the battlefield.
+  value: 50
+  weight: 3
+  itemSprite: {fileID: 21300000, guid: ef55faf626b4d24438405514038e0729, type: 3}
+  slotNumber: 0
   vigourMod: 0
-  strengthMod: 0
-  dexterityMod: 0
+  strengthMod: 1
+  dexterityMod: 6
   intelligenceMod: 0
   luckMod: 0
+  slot: 2
   accuracy: 0

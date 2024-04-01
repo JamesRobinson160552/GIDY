@@ -13,14 +13,16 @@ MonoBehaviour:
   m_Name: Lunar Cleaver
   m_EditorClassIdentifier: 
   itemName: Lunar Cleaver
-  description: 
-  value: 0
-  weight: 0
-  itemSprite: {fileID: 0}
+  description: Adorned with a crescent moon design on the back of its blade, this
+    cleaver is infused with the ethereal energy of the moon, granting it a mystical
+    gleam as it cleaves through enemies with lunar precision.
+  value: 50
+  weight: 5
+  itemSprite: {fileID: 21300000, guid: f4e6767ca8c0a2247aa46e899e01d1c8, type: 3}
   slotNumber: 0
-  vigourMod: 0
-  strengthMod: 0
-  dexterityMod: 0
+  vigourMod: 1
+  strengthMod: 5
+  dexterityMod: 2
   intelligenceMod: 0
   luckMod: 0
   slot: 3

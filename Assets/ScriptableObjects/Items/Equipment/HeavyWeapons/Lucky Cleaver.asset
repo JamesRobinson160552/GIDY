@@ -13,15 +13,18 @@ MonoBehaviour:
   m_Name: Lucky Cleaver
   m_EditorClassIdentifier: 
   itemName: Lucky Cleaver
-  description: 
-  value: 0
-  weight: 0
-  itemSprite: {fileID: 0}
+  description: This cleaver, believed to be touched by luck itself, seems to guide
+    its wielder's hand toward victory. Each swing carries with it the promise of
+    fortuitous outcomes, turning the tide of battle in unexpected ways and bringing
+    good fortune to those who dare to wield it.
+  value: 100
+  weight: 5
+  itemSprite: {fileID: 21300000, guid: f4e6767ca8c0a2247aa46e899e01d1c8, type: 3}
   slotNumber: 0
-  vigourMod: 0
-  strengthMod: 0
-  dexterityMod: 0
+  vigourMod: 1
+  strengthMod: 4
+  dexterityMod: 3
   intelligenceMod: 0
-  luckMod: 0
+  luckMod: 5
   slot: 3
-  accuracy: 0
+  accuracy: 2

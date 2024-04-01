@@ -13,15 +13,18 @@ MonoBehaviour:
   m_Name: Inferno's Blade
   m_EditorClassIdentifier: 
   itemName: inferno's Blade
-  description: 
-  value: 0
-  weight: 0
-  itemSprite: {fileID: 0}
+  description: Crafted by ancient fire mages in the heart of an active volcano, Inferno's
+    Edge is a great sword made of pure flame. The sword's fiery essence is said to
+    embody the unyielding fury of the volcano, consuming all in its path with relentless
+    infernos.
+  value: 500
+  weight: 5
+  itemSprite: {fileID: 21300000, guid: f4e6767ca8c0a2247aa46e899e01d1c8, type: 3}
   slotNumber: 0
   vigourMod: 0
-  strengthMod: 0
-  dexterityMod: 0
+  strengthMod: 10
+  dexterityMod: 10
   intelligenceMod: 0
   luckMod: 0
   slot: 3
-  accuracy: 0
+  accuracy: 4

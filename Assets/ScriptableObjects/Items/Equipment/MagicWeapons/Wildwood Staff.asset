@@ -12,16 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e42a4c8dbc6a6d640aabd198bda2c6f9, type: 3}
   m_Name: Wildwood Staff
   m_EditorClassIdentifier: 
-  itemName: 
-  description: 
-  value: 0
-  weight: 0
-  itemSprite: {fileID: 0}
-  slot: 0
-  sprite: {fileID: 0}
-  vigourMod: 0
-  strengthMod: 0
-  dexterityMod: 0
-  intelligenceMod: 0
+  itemName: Wildwood Staff
+  description: Crafted from the branches of sacred trees found deep within primal
+    forests, the Wildwood Staff is a potent conduit for nature magic, wielded by
+    druids to commune with the spirits of the wilderness and harness the primal forces
+    of the natural world.
+  value: 10
+  weight: 3
+  itemSprite: {fileID: 21300000, guid: 5768a5b2ff67e874eb0d7ed99ab973d5, type: 3}
+  slotNumber: 0
+  vigourMod: 1
+  strengthMod: 1
+  dexterityMod: 1
+  intelligenceMod: 3
   luckMod: 0
-  accuracy: 0
+  slot: 4
+  accuracy: 1

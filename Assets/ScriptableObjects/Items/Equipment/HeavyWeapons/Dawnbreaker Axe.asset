@@ -13,15 +13,20 @@ MonoBehaviour:
   m_Name: Dawnbreaker Axe
   m_EditorClassIdentifier: 
   itemName: Dawnbreaker Axe
-  description: 
-  value: 0
-  weight: 0
-  itemSprite: {fileID: 0}
+  description: Crafted from the first rays of dawn, this great axe is said to embody
+    the light's eternal struggle against darkness. Legend has it that it was forged
+    by a legendary warrior who sought to bring an end to an age of darkness that
+    had shrouded the land for centuries. With each swing, it radiates with the warmth
+    of the rising sun, inspiring hope in allies and striking fear into the hearts
+    of the wicked.
+  value: 500
+  weight: 10
+  itemSprite: {fileID: 21300000, guid: be37880cf00167a4da7995dc74f52e35, type: 3}
   slotNumber: 0
-  vigourMod: 0
-  strengthMod: 0
-  dexterityMod: 0
+  vigourMod: 2
+  strengthMod: 9
+  dexterityMod: 4
   intelligenceMod: 0
   luckMod: 0
   slot: 3
-  accuracy: 0
+  accuracy: 1

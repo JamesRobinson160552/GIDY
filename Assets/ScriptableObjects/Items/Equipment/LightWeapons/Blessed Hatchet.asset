@@ -12,16 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e42a4c8dbc6a6d640aabd198bda2c6f9, type: 3}
   m_Name: Blessed Hatchet
   m_EditorClassIdentifier: 
-  itemName: 
-  description: 
-  value: 0
-  weight: 0
-  itemSprite: {fileID: 0}
-  slot: 0
-  sprite: {fileID: 0}
+  itemName: Blessed Hatchet
+  description: Radiating with divine light, this hatchet is blessed by celestial
+    beings, imbuing it with holy power. With each swing, it cleaves through darkness
+    and evil, protecting its wielder with the divine grace of the heavens.
+  value: 100
+  weight: 2
+  itemSprite: {fileID: 21300000, guid: 84d0b20f7d459dd40b9e4a02ba7c0f4f, type: 3}
+  slotNumber: 0
   vigourMod: 0
-  strengthMod: 0
-  dexterityMod: 0
+  strengthMod: 4
+  dexterityMod: 4
   intelligenceMod: 0
   luckMod: 0
-  accuracy: 0
+  slot: 2
+  accuracy: 2

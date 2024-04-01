@@ -13,15 +13,18 @@ MonoBehaviour:
   m_Name: Koan's Devotion
   m_EditorClassIdentifier: 
   itemName: Koan's Devotion
-  description: 
-  value: 0
-  weight: 0
-  itemSprite: {fileID: 0}
+  description: Fashioned by the legendary monk Koan, this warclub embodies the principles
+    of discipline and spiritual enlightenment. Koan spent years honing his martial
+    skills in solitude, seeking to master the art of combat without forsaking his
+    inner peace.
+  value: 500
+  weight: 8
+  itemSprite: {fileID: 21300000, guid: 5768a5b2ff67e874eb0d7ed99ab973d5, type: 3}
   slotNumber: 0
-  vigourMod: 0
-  strengthMod: 0
-  dexterityMod: 0
-  intelligenceMod: 0
+  vigourMod: 4
+  strengthMod: 10
+  dexterityMod: 4
+  intelligenceMod: 1
   luckMod: 0
   slot: 3
-  accuracy: 0
+  accuracy: 2

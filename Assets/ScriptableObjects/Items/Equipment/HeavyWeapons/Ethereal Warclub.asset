@@ -13,13 +13,15 @@ MonoBehaviour:
   m_Name: Ethereal Warclub
   m_EditorClassIdentifier: 
   itemName: Ethereal Warclub
-  description: 
-  value: 0
+  description: This warclub, weightless and swift as a feather, dances through the
+    air with unmatched grace, empowering its wielder with agility and precision in
+    combat.
+  value: 50
   weight: 0
-  itemSprite: {fileID: 0}
-  slotNumber: 0
-  vigourMod: 0
-  strengthMod: 0
+  itemSprite: {fileID: 21300000, guid: 72c4d81bc58502d4393ff362d3766c24, type: 3}
+  slotNumber: 3
+  vigourMod: 4
+  strengthMod: 1
   dexterityMod: 0
   intelligenceMod: 0
   luckMod: 0

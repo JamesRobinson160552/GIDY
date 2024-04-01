@@ -13,13 +13,15 @@ MonoBehaviour:
   m_Name: Eclipse GreatSword
   m_EditorClassIdentifier: 
   itemName: Eclipse Great Sword
-  description: 
-  value: 0
-  weight: 0
-  itemSprite: {fileID: 0}
+  description: This greatsword, shrouded in darkness, seems to absorb all light around
+    it, granting its wielder unparalleled strength while striking fear into the hearts
+    of enemies who dare to face it in battle.
+  value: 50
+  weight: 5
+  itemSprite: {fileID: 21300000, guid: f4e6767ca8c0a2247aa46e899e01d1c8, type: 3}
   slotNumber: 0
   vigourMod: 0
-  strengthMod: 0
+  strengthMod: 8
   dexterityMod: 0
   intelligenceMod: 0
   luckMod: 0

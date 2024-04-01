@@ -13,15 +13,18 @@ MonoBehaviour:
   m_Name: Tomb Hammer
   m_EditorClassIdentifier: 
   itemName: Tomb Hammer
-  description: 
-  value: 0
-  weight: 0
-  itemSprite: {fileID: 0}
+  description: Hewn from the stones of ancient graves, this hammer is a grim reminder
+    of battles long past. Legend speaks of a cursed blacksmith who forged it from
+    the tombstones of fallen warriors, seeking to bind their restless spirits to
+    his will. With each strike, it echoes with the mournful wails of the dead.
+  value: 500
+  weight: 15
+  itemSprite: {fileID: 21300000, guid: 6711dbd048b65084187b23bbdc32bc0b, type: 3}
   slotNumber: 0
-  vigourMod: 0
-  strengthMod: 0
-  dexterityMod: 0
+  vigourMod: -1
+  strengthMod: 18
+  dexterityMod: 1
   intelligenceMod: 0
   luckMod: 0
   slot: 3
-  accuracy: 0
+  accuracy: 2

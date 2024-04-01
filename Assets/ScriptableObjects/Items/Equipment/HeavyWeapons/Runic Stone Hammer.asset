@@ -13,15 +13,18 @@ MonoBehaviour:
   m_Name: Runic Stone Hammer
   m_EditorClassIdentifier: 
   itemName: Runic Stone Hammer
-  description: 
-  value: 0
-  weight: 0
-  itemSprite: {fileID: 0}
+  description: This stone hammer is adorned with ancient runes, pulsing with mystical
+    energy as it crushes through enemy defenses. Each strike resonates with the power
+    of the arcane, empowering its wielder with unparalleled strength and mastery
+    over the magical arts.
+  value: 50
+  weight: 7
+  itemSprite: {fileID: 21300000, guid: 6711dbd048b65084187b23bbdc32bc0b, type: 3}
   slotNumber: 0
   vigourMod: 0
-  strengthMod: 0
-  dexterityMod: 0
-  intelligenceMod: 0
+  strengthMod: 11
+  dexterityMod: -2
+  intelligenceMod: 2
   luckMod: 0
   slot: 3
-  accuracy: 0
+  accuracy: -2

@@ -13,13 +13,15 @@ MonoBehaviour:
   m_Name: Stormforged Battle Axe
   m_EditorClassIdentifier: 
   itemName: Stormforged Battle Axe
-  description: 
-  value: 0
-  weight: 0
-  itemSprite: {fileID: 0}
+  description: Crafted in the heart of a raging storm, this battle axe crackles with
+    the fury of thunder. Its strikes echo with the roar of lightning, rending armor
+    and flesh alike with the unstoppable force of nature's wrath.
+  value: 50
+  weight: 4
+  itemSprite: {fileID: 21300000, guid: be37880cf00167a4da7995dc74f52e35, type: 3}
   slotNumber: 0
-  vigourMod: 0
-  strengthMod: 0
+  vigourMod: 4
+  strengthMod: 5
   dexterityMod: 0
   intelligenceMod: 0
   luckMod: 0
