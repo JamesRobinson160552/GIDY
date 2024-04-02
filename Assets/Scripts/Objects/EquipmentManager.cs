@@ -19,7 +19,7 @@ public class EquipmentManager : MonoBehaviour
     [SerializeField] private float itemBuffer;
     [SerializeField] private GameObject equippablesContainer;
     public int numEquippables;
-    [SerializeField] private ItemSlot[] slots = new ItemSlot[5];
+    [SerializeField] public ItemSlot[] slots = new ItemSlot[5];
 
     void Start()
     {

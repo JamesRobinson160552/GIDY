@@ -24,6 +24,7 @@ public class SalesManager : MonoBehaviour
 
     void Start()
     {
+        
         StartCoroutine(RefreshSellables());
     }
 

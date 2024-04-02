@@ -22,14 +22,19 @@ public class PlayerInfo : MonoBehaviour, ISavable
     [SerializeField] private InventoryManager inventory;
     public BaseItem[] equipped = new BaseItem[5];
     [SerializeField] private ItemSlot[] itemSlots;
+    bool refreshOnAwake = true;
 
     public void Awake()
     {
+        if (refreshOnAwake)
+        {
+            SavingSystem.i.Load("equipment");
+            refreshOnAwake = false;
+        }
         playerLevel = PlayerPrefs.GetInt("playerLevel", 1);
         exp = PlayerPrefs.GetInt("exp", 0);
         gold = PlayerPrefs.GetInt("gold", 0);
         goldText.text = "$" + gold.ToString();
-        SavingSystem.i.Load("equipped");
         SetLevelThreshold();
         SetExpBar();
     }
@@ -68,6 +73,7 @@ public class PlayerInfo : MonoBehaviour, ISavable
 
     public void SetGold(int newGold)
     {
+        Debug.Log("Setting gold to " + newGold.ToString());
         gold = newGold;
         goldText.text = "$" + gold.ToString();
         PlayerPrefs.SetInt("gold", gold);
@@ -97,6 +103,11 @@ public class PlayerInfo : MonoBehaviour, ISavable
         Dictionary<string, object> stateDict = (Dictionary<string, object>)state;
         for (int i = 0; i < equipped.Length; i++)
         {
+            if (itemSlots[0] == null) itemSlots[0] = GameObject.Find("EquipmentManager").GetComponent<EquipmentManager>().slots[0];
+            if (itemSlots[1] == null) itemSlots[1] = GameObject.Find("EquipmentManager").GetComponent<EquipmentManager>().slots[1];
+            if (itemSlots[2] == null) itemSlots[2] = GameObject.Find("EquipmentManager").GetComponent<EquipmentManager>().slots[2];
+            if (itemSlots[3] == null) itemSlots[3] = GameObject.Find("EquipmentManager").GetComponent<EquipmentManager>().slots[3];
+            if (itemSlots[4] == null) itemSlots[4] = GameObject.Find("EquipmentManager").GetComponent<EquipmentManager>().slots[4];
             if (stateDict[i.ToString()] != null)
             {
                 equipped[i] = inventory.FindItem(stateDict[i.ToString()].ToString());

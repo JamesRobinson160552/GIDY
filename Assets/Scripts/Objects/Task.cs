@@ -19,8 +19,8 @@ public class Task : MonoBehaviour
 
     void Start()
     {
-        SetInfo();
         manager = transform.parent.gameObject.GetComponent<TaskManager>();
+        SetInfo();
     }
 
     void SetInfo()
@@ -28,14 +28,13 @@ public class Task : MonoBehaviour
         taskNameText.text = taskName;
         dueDateText.text = dueDateString;
         taskNameEditText.text= taskName;
-        dueDateEditText.text = dueDateString;
+        dueDateEditText.text = dueDateString; 
     }
 
     public void Complete()
     {
         UiSounds.instance.PlaySound(4);
         manager.CompleteTask(taskNumber, true);
-        Destroy(this.gameObject);
     }
 
     public string WriteToString()

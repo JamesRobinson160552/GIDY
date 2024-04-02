@@ -7,13 +7,20 @@ using UnityEngine.SceneManagement;
 public class BattleManager : MonoBehaviour
 {
     [SerializeField] private Player player;
-    [SerializeField] private Enemy enemy;
+    public Enemy enemy;
     [SerializeField] private GameObject mainButtons;
     [SerializeField] private GameObject attackButtons;
     [SerializeField] private GameObject itemsMenu;
     private float playerBlockModifier = 0;
+    public static BattleManager i { get; private set; }
 
-    public void Start()
+    private void Start()
+    {
+        if (i == null) { i = this; }
+        Screen.orientation = ScreenOrientation.LandscapeLeft;
+    }
+
+    public void StartBattle()
     {
         StartPlayerTurn();
     }
@@ -71,7 +78,6 @@ public class BattleManager : MonoBehaviour
             int damage = Mathf.FloorToInt(enemy.totalStats[attackType] * playerBlockModifier);
             player.TakeDamage(damage);
             playerBlockModifier = 1;
-            StartPlayerTurn();
         }
     }
 
@@ -81,7 +87,6 @@ public class BattleManager : MonoBehaviour
         StartCoroutine(player.PlayAttackAnimation(attackType));
         int damage = player.totalStats[attackType];
         enemy.TakeDamage(damage);
-        EndPlayerTurn();
     }
 
     public void PlayerBlock()

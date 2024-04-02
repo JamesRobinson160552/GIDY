@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Slime
   sprite: {fileID: 21300000, guid: 65ef693b92de37c4d8afd206255a0d66, type: 3}
-  vigour: 50
+  vigour: 25
   strength: 3
   dexterity: 4
   intelligence: 5

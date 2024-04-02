@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Devil
   sprite: {fileID: 21300000, guid: 0105a16f854400446bf9b5f0ac2bb53f, type: 3}
-  vigour: 20
+  vigour: 10
   strength: 5
   dexterity: 5
   intelligence: 5

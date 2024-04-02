@@ -8,8 +8,27 @@ public class StoreManager : MonoBehaviour, ISavable
     public bool[] bought;
     [SerializeField] BaseItem[] stock;
     [SerializeField] private InventoryManager allItems;
+    bool initialized = false;
+
+    //This is a hacky way to dynamically change script execution order
+    void Awake()
+    {
+        if (Timer.i != null)
+        {
+            Init();
+            initialized = true;
+        }
+    }
 
     void Start()
+    {
+        if (!initialized)
+        {
+            Init();
+        }
+    }
+
+    void Init()
     {
         for (int i = 0; i < bought.Length; i++)
         {

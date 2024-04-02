@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     [SerializeField] private HealthBar healthBar;
     [SerializeField] private BattleManager battleManager;
     [SerializeField] private PlayerInfo playerInfo;
+    [SerializeField] private SpriteRenderer spriteRenderer;
 
     void Awake()
     {
@@ -68,26 +69,41 @@ public class Player : MonoBehaviour
 
     public IEnumerator PlayAttackAnimation(int attackType)
     {
+        while (transform.position.x < 1.0f)
+        {
+            transform.position += new Vector3(0.2f, 0, 0);
+            yield return new WaitForSeconds(0.01f);
+        }
         switch (attackType)
         {
             case 2: 
                 Debug.Log("Player Light Attack Animation");
+                BattleSounds.i.PlaySound(0);
                 break;
             case 3:
                 Debug.Log("Player Heavy Attack Animation");
+                BattleSounds.i.PlaySound(1);
                 break;
             case 4:
                 Debug.Log("Player Magic Attack Animation");
+                BattleSounds.i.PlaySound(2);
                 break;
             default:
                 Debug.Log("Unknown Attack Type");
                 break;
         }
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.5f);
+        while (transform.position.x > -8.0f)
+        {
+            transform.position -= new Vector3(0.25f, 0, 0);
+            yield return new WaitForSeconds(0.01f);
+        }
+        battleManager.EndPlayerTurn();
     }
 
     public void TakeDamage(int damage)
     {
+        StartCoroutine(FlashSprite());
         Debug.Log("Player took " + damage.ToString() + " damage!");
         currentHealth -= damage;
         Debug.Log("Player now has " + currentHealth.ToString() + " health");
@@ -98,11 +114,26 @@ public class Player : MonoBehaviour
         }
     }
 
+    public IEnumerator FlashSprite()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            spriteRenderer.color = new Color(1, 1, 1, 0.5f);
+            yield return new WaitForSeconds(0.1f);
+            spriteRenderer.color = new Color(1, 1, 1, 1);
+        }
+    }
+
     public IEnumerator Die()
     {
+        BattleSounds.i.PlaySound(4);
         Debug.Log("Player Died");
-        //Play Death Animation
-        yield return new WaitForSeconds(1);
+        spriteRenderer.color = new Color(1, 1, 1, 1);
+        while (spriteRenderer.color.a > 0)
+        {
+            spriteRenderer.color = new Color(1, 1, 1, spriteRenderer.color.a - 0.01f);
+            yield return new WaitForSeconds(0.01f);
+        }
         battleManager.EndBattle("player");
     }
 }

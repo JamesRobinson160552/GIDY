@@ -14,10 +14,10 @@ public class TaskManager : MonoBehaviour, ISavable
     [SerializeField] private float taskGap = 200.0f;
     [SerializeField] private PlayerInfo playerInfo;
     public List<TaskStruct> tasks = new List<TaskStruct>();
-    public int numTasks;
+    public int numTasks = 0;
     public static TaskManager i { get; private set; }
 
-    void Awake()
+    void Start()
     {
         if (i == null) i = this;
         SavingSystem.i.Load("tasks");
@@ -27,14 +27,14 @@ public class TaskManager : MonoBehaviour, ISavable
     public void MakeEmptyTask() 
     {
         Task newTask = CreateNewTask("", "");
+        tasks.Add(new TaskStruct("", ""));
         newTask.EnterEditView();
     }
 
     public Task CreateNewTask(string taskName, string dueDate)
     {
-        //Debug.Log("Creating new task");
+        Debug.Log("Creating new task");
         Vector3 newTaskPosition = new Vector3(0,0,0);
-        numTasks = taskContainer.transform.childCount;
 
         if (numTasks == 0)
         {
@@ -66,6 +66,7 @@ public class TaskManager : MonoBehaviour, ISavable
 
     public void CompleteTask(int removedTaskNumber, bool wasFinished)
     {
+        int num = removedTaskNumber - 1;
         if (wasFinished) { playerInfo.GainExp(10); }
         //Move all tasks below removed task up in the list
         foreach (Transform taskTransform in taskContainer.transform)
@@ -81,9 +82,11 @@ public class TaskManager : MonoBehaviour, ISavable
                 );
             }
         }
+        tasks.RemoveAt(num);
         numTasks--;
-        tasks.RemoveAt(removedTaskNumber-1);
         SavingSystem.i.Save("tasks");
+        Debug.Log("Removed task " + removedTaskNumber);
+        Destroy(transform.GetChild(num).gameObject);
     }
 
     public object CaptureState()
@@ -99,21 +102,24 @@ public class TaskManager : MonoBehaviour, ISavable
 
     public void RestoreState(object state)
     {
-        tasks.Clear();
-        //Debug.Log("Restoring state of tasks");
+        Debug.Log(state);
+        tasks = new List<TaskStruct>();
+        Debug.Log("Restoring state of tasks");
         Dictionary<string, object> stateDict = (Dictionary<string, object>)state;
-        for (int i = 0; i < stateDict.Count; i++)
+        foreach (string key in stateDict.Keys)
         {
-            TaskStruct task = (TaskStruct)stateDict[i.ToString()];
+            TaskStruct task = (TaskStruct)stateDict[key];
             tasks.Add(task);
+        }
+        foreach (TaskStruct task in tasks)
+        {
             CreateNewTask(task.taskName, task.dueDateString);
         }
     }
 
     public void SaveTask(int taskNumber, string taskName, string dueDateString)
     {
-        if (taskNumber > tasks.Count) tasks.Add(new TaskStruct(taskName, dueDateString));
-        else tasks[taskNumber-1] = new TaskStruct(taskName, dueDateString);
+        tasks[taskNumber-1] = new TaskStruct(taskName, dueDateString);
         SavingSystem.i.Save("tasks");
     }
 

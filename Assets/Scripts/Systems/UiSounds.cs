@@ -11,6 +11,7 @@ public class UiSounds : MonoBehaviour
     void Awake()
     {
         instance = this;
+        Screen.orientation = ScreenOrientation.Portrait;
     }
 
     public void PlaySound(int index)
