@@ -24,10 +24,11 @@ public class TaskManager : MonoBehaviour
     //This buffer is needed since buttons cant call methods with multiple parameters
     public void MakeEmptyTask() 
     {
-        CreateNewTask("", "");
+        Task newTask = CreateNewTask("", "");
+        newTask.EnterEditView();
     }
 
-    public void CreateNewTask(string taskName, string dueDate)
+    public Task CreateNewTask(string taskName, string dueDate)
     {
         Vector3 newTaskPosition = new Vector3(0,0,0);
         numTasks = taskContainer.transform.childCount;
@@ -60,6 +61,7 @@ public class TaskManager : MonoBehaviour
         taskScript.taskNumber = numTasks;
 
         SaveTasks();
+        return taskScript;
     }
 
     public void CompleteTask(int removedTaskNumber, bool wasFinished)

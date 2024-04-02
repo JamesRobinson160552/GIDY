@@ -13,7 +13,7 @@ public class ShopItem : MonoBehaviour
     [SerializeField] private ItemDisplay display;
     [SerializeField] private Button buyButton;
     [SerializeField] private PlayerInfo player;
-    [SerializeField] private InventoryManager inventory;
+    [SerializeField] private InventoryManager allItems;
     [Header("Can be: armour / helmet / light / heavy / magic / consumable")]
     [SerializeField] private string itemType;
     string[] types = {"armour", "helmets", "light", "heavy", "magic", "consumables"};
@@ -44,7 +44,7 @@ public class ShopItem : MonoBehaviour
         }
 
         player.SetGold(player.gold - item.value);
-        inventory.AddItem(item);
+        allItems.AddItem(item);
         display.gameObject.SetActive(false);
         buyButton.enabled = false;
     }
@@ -55,22 +55,22 @@ public class ShopItem : MonoBehaviour
         switch (itemType)
         {
             case "armour":
-                itemArray = inventory.armour;
+                itemArray = allItems.armour;
                 break;
             case "helmet":
-                itemArray = inventory.helmets;
+                itemArray = allItems.helmets;
                 break;
             case "light":
-                itemArray = inventory.lightWeapons;
+                itemArray = allItems.lightWeapons;
                 break;
             case "heavy":
-                itemArray = inventory.heavyWeapons;
+                itemArray = allItems.heavyWeapons;
                 break;
             case "magic":
-                itemArray = inventory.magicWeapons;
+                itemArray = allItems.magicWeapons;
                 break;
             case "consumables":
-                itemArray = inventory.consumables;
+                itemArray = allItems.consumables;
                 break;
             default:
                 itemType = types[Random.Range(0, types.Length-1)];
@@ -78,11 +78,13 @@ public class ShopItem : MonoBehaviour
                 return;
         }
 
+        int count = 0;
         //While loop since this might miss if the array is not full
-        while (item == null)
+        while (item == null && count < 10)
         {
             int randomIndex = Random.Range(0, itemArray.Length-1);
             item = itemArray[randomIndex];
+            count ++;
         }
     }
 }

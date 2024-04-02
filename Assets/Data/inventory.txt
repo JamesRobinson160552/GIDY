@@ -6,3 +6,4 @@ Elven Chainmail
 Leather Tunic
 Heavy Armour
 Leather Tunic
+Oak Staff
