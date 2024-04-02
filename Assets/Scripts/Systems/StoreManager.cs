@@ -91,7 +91,7 @@ public class StoreManager : MonoBehaviour, ISavable
 
     public object CaptureState()
     {
-        Debug.Log("Capturing state of store");
+        //Debug.Log("Capturing state of store");
         Dictionary<string, object> state = new Dictionary<string, object>();
         for (int i = 0; i < stock.Length; i++)
         {
@@ -102,7 +102,7 @@ public class StoreManager : MonoBehaviour, ISavable
 
     public void RestoreState(object state)
     {
-        Debug.Log("Restoring state of store");
+        //Debug.Log("Restoring state of store");
         Dictionary<string, object> stateDict = (Dictionary<string, object>)state;
         for (int i = 0; i < stock.Length; i++)
         {

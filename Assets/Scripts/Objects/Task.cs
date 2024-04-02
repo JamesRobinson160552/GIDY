@@ -46,7 +46,7 @@ public class Task : MonoBehaviour
     public void EnterEditView()
     {
         UiSounds.instance.PlaySound(0);
-        Debug.Log("Entering edit view");
+        //Debug.Log("Entering edit view");
         dueDateEditText.text = dueDateString;
         taskNameEditText.text = taskName;
         editView.SetActive(true);
@@ -55,24 +55,25 @@ public class Task : MonoBehaviour
 
     public void SaveEdits()
     {
-        Debug.Log("Saved Edits");
+        //Debug.Log("Saved Edits");
         editView.SetActive(false);
         mainView.SetActive(true);
         dueDateString = dueDateEditText.text;
         taskName = taskNameEditText.text;
         SetInfo();
+        TaskManager.i.SaveTask(taskNumber, taskName, dueDateString);
     }
 
     public void DiscardEdits()
     {
-        Debug.Log("Discarding edits");
+        //Debug.Log("Discarding edits");
         editView.SetActive(false);
         mainView.SetActive(true);
     }
 
     public void RemoveTask()
     {
-        Debug.Log("Removing Task");
+        //Debug.Log("Removing Task");
         manager.CompleteTask(taskNumber, false);
         Destroy(this.gameObject);
     }

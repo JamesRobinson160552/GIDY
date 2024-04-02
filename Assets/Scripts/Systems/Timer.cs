@@ -16,7 +16,7 @@ public class Timer : MonoBehaviour
     void Awake()
     {
         if (i == null) i = this;
-        newDay = true;
+        newDay = false;
     }
 
     // Start is called before the first frame update

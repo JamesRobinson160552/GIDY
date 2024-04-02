@@ -75,7 +75,7 @@ public class PlayerInfo : MonoBehaviour, ISavable
 
     public object CaptureState()
     {
-        Debug.Log("Capturing state of equipment");
+        //Debug.Log("Capturing state of equipment");
         Dictionary<string, object> state = new Dictionary<string, object>();
         for (int i = 0; i < equipped.Length; i++)
         {
@@ -93,7 +93,7 @@ public class PlayerInfo : MonoBehaviour, ISavable
 
     public void RestoreState(object state)
     {
-        Debug.Log("Restoring state of equipment");
+        //Debug.Log("Restoring state of equipment");
         Dictionary<string, object> stateDict = (Dictionary<string, object>)state;
         for (int i = 0; i < equipped.Length; i++)
         {

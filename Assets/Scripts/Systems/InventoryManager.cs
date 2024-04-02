@@ -33,7 +33,7 @@ public class InventoryManager : MonoBehaviour, ISavable
         for (int i=0; i<inventoryList.Count; i++)
         {
             string currentItem = inventoryList[i];
-            Debug.Log(currentItem);
+            //Debug.Log(currentItem);
             if (currentItem.Length > 1)
             {
                 inventory.Add(FindItem(currentItem));
@@ -85,7 +85,7 @@ public class InventoryManager : MonoBehaviour, ISavable
 
     public object CaptureState()
     {
-        Debug.Log("Capturing state of inventory");
+        //Debug.Log("Capturing state of inventory");
         Dictionary<string, object> state = new Dictionary<string, object>();
         for (int i = 0; i < inventoryList.Count; i++)
         {
@@ -96,7 +96,7 @@ public class InventoryManager : MonoBehaviour, ISavable
 
     public void RestoreState(object state)
     {
-        Debug.Log("Restoring state of inventory");
+        //Debug.Log("Restoring state of inventory");
         inventoryList.Clear();
         Dictionary<string, object> stateDict = (Dictionary<string, object>)state;
         for (int i = 0; i < stateDict.Count; i++)

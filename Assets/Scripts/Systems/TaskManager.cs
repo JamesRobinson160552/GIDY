@@ -6,19 +6,21 @@ using System;
 using UnityEngine;
 using UnityEditor;
 
-public class TaskManager : MonoBehaviour
+public class TaskManager : MonoBehaviour, ISavable
 {
     [SerializeField] private GameObject taskPrefab;
     [SerializeField] private GameObject taskContainer;
     [SerializeField] private Vector3 topOfList;
     [SerializeField] private float taskGap = 200.0f;
     [SerializeField] private PlayerInfo playerInfo;
+    public List<TaskStruct> tasks = new List<TaskStruct>();
     public int numTasks;
+    public static TaskManager i { get; private set; }
 
     void Awake()
     {
-        //AssetDatabase.Refresh();
-        LoadTasks();
+        if (i == null) i = this;
+        SavingSystem.i.Load("tasks");
     }
 
     //This buffer is needed since buttons cant call methods with multiple parameters
@@ -30,9 +32,9 @@ public class TaskManager : MonoBehaviour
 
     public Task CreateNewTask(string taskName, string dueDate)
     {
+        //Debug.Log("Creating new task");
         Vector3 newTaskPosition = new Vector3(0,0,0);
         numTasks = taskContainer.transform.childCount;
-        //Debug.Log(numTasks.ToString() + " tasks in list");
 
         if (numTasks == 0)
         {
@@ -59,8 +61,6 @@ public class TaskManager : MonoBehaviour
         taskScript.taskName = taskName;
         taskScript.dueDateString = dueDate;
         taskScript.taskNumber = numTasks;
-
-        SaveTasks();
         return taskScript;
     }
 
@@ -81,55 +81,51 @@ public class TaskManager : MonoBehaviour
                 );
             }
         }
-        SaveTasks();
+        numTasks--;
+        tasks.RemoveAt(removedTaskNumber-1);
+        SavingSystem.i.Save("tasks");
     }
 
-    private string GetPath()
+    public object CaptureState()
     {
-        #if UNITY_EDITOR
-        return Application.dataPath+"/Data/"+"tasks.txt";
-        #elif UNITY_ANDROID
-        return Application.persistentDataPath+"tasks.txt";
-        #else
-        return Application.persistentDataPath+"/tasks.txt";
-        #endif
-    }
-
-    public void SaveTasks()
-    {
-        using (var stream = new FileStream(GetPath(), FileMode.Truncate))
+        //Debug.Log("Capturing state of tasks");
+        Dictionary<string, object> state = new Dictionary<string, object>();
+        for (int i = 0; i < tasks.Count; i++)
         {
-            using (StreamWriter writer = new StreamWriter(stream))
-            {
-                foreach (Transform taskTransform in taskContainer.transform)
-                {
-                    Task task = taskTransform.gameObject.GetComponent<Task>();
-                    writer.WriteLine(task.WriteToString());
-                }
-                writer.Close();
-            }
-            stream.Close();
+            state[i.ToString()] = tasks[i];
+        }
+        return state;
+    }
+
+    public void RestoreState(object state)
+    {
+        tasks.Clear();
+        //Debug.Log("Restoring state of tasks");
+        Dictionary<string, object> stateDict = (Dictionary<string, object>)state;
+        for (int i = 0; i < stateDict.Count; i++)
+        {
+            TaskStruct task = (TaskStruct)stateDict[i.ToString()];
+            tasks.Add(task);
+            CreateNewTask(task.taskName, task.dueDateString);
         }
     }
 
-    public void LoadTasks()
+    public void SaveTask(int taskNumber, string taskName, string dueDateString)
     {
-        //Get tasks from file
-        StreamReader reader = new StreamReader(GetPath());
-        List<string> tasks = new List<string>();
-        while (reader.Peek() >= 0)
-        {
-            tasks.Add(reader.ReadLine());
-        }
-        reader.Close();
+        if (taskNumber > tasks.Count) tasks.Add(new TaskStruct(taskName, dueDateString));
+        else tasks[taskNumber-1] = new TaskStruct(taskName, dueDateString);
+        SavingSystem.i.Save("tasks");
+    }
 
-        //Create tasks in game
-        foreach (string task in tasks)
+    [System.Serializable]
+    public struct TaskStruct
+    {
+        public TaskStruct(string taskName, string dueDateString)
         {
-            string[] data = task.Split(',');
-            string n = data[0];
-            string d = data[1];
-            CreateNewTask(n, d);
+            this.taskName = taskName;
+            this.dueDateString = dueDateString;
         }
+        [SerializeField] public string taskName { get; set; }
+        [SerializeField] public string dueDateString { get; set; }
     }
 }

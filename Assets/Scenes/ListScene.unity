@@ -7121,6 +7121,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1351750160}
   - component: {fileID: 1351750161}
+  - component: {fileID: 1351750162}
   m_Layer: 0
   m_Name: TaskContainer
   m_TagString: Untagged
@@ -7165,6 +7166,19 @@ MonoBehaviour:
   taskGap: 200
   playerInfo: {fileID: 1364123423}
   numTasks: 0
+--- !u!114 &1351750162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1351750159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4881f89f8b930e34489bbb86116ccd4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uniqueId: 7f813a65-0681-4912-8c34-7a68261b2d7a
 --- !u!1 &1356553200
 GameObject:
   m_ObjectHideFlags: 0
