@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e42a4c8dbc6a6d640aabd198bda2c6f9, type: 3}
-  m_Name: Leather Cap
+  m_Script: {fileID: 11500000, guid: 77a5e6aa6339ca4479aba76e446d900f, type: 3}
+  m_Name: Heavy Helmet
   m_EditorClassIdentifier: 
   itemName: 
   description: 
@@ -24,4 +24,3 @@ MonoBehaviour:
   intelligenceMod: 0
   luckMod: 0
   slot: 0
-  accuracy: 0
