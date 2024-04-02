@@ -17,7 +17,7 @@ MonoBehaviour:
     the naked eye and granting unmatched stealth.
   value: 100
   weight: 1
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: be2a2aad2dc2eb847bf93f81bea1e55a, type: 3}
   slotNumber: 1
   vigourMod: 2
   strengthMod: 2

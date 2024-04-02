@@ -17,7 +17,7 @@ MonoBehaviour:
     hindering mobility.
   value: 1
   weight: 4
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: cf4443239d050bc4e91bb67b63678653, type: 3}
   slotNumber: 1
   vigourMod: 2
   strengthMod: 0

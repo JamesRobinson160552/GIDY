@@ -16,7 +16,7 @@ MonoBehaviour:
   description: Heavy Armour that limits movement, but protects the wearer.
   value: 1
   weight: 3
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: 6a50c44441610e64f99ec97a478651f8, type: 3}
   slotNumber: 1
   vigourMod: 8
   strengthMod: 0

@@ -23,7 +23,6 @@ public class ItemSlot : MonoBehaviour
 
     public void Equip(BaseItem item)
     {
-        sprite.color = new Color(1, 1, 1, 1);
         UiSounds.instance.PlaySound(3);
         if (currentlyEquipped)
         {
@@ -33,6 +32,7 @@ public class ItemSlot : MonoBehaviour
         currentlyEquipped = item;
         playerInfo.SaveEquipped();
         sprite.sprite = currentlyEquipped.itemSprite;
+        sprite.color = new Color(1, 1, 1, 1);
     }
 
     public void Unequip()
