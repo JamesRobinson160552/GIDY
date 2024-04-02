@@ -24,7 +24,7 @@ public class SalesManager : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(RefreshSellables());
+        RefreshSellables();
     }
 
     public void Preview(SellableItem itemToDisplay)
@@ -102,21 +102,8 @@ public class SalesManager : MonoBehaviour
         }
     }
 
-    public void AnotherBuffer()
+    public void RefreshSellables()
     {
-        StartCoroutine(RefreshSellables());
-    }
-
-    public IEnumerator RefreshSellables()
-    {
-        foreach (Transform t in sellablesContainer.transform)
-        {
-            Destroy(t.gameObject);    
-        }
-
-        numSellables = 0;
-        yield return new WaitForEndOfFrame(); //Make sure all objects are registered as destroyed before readding
-
         foreach (BaseItem i in inventory.inventory)
         {
             AddSellable(i);
