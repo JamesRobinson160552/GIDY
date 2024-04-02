@@ -18,7 +18,7 @@ MonoBehaviour:
   value: 100
   weight: 10
   itemSprite: {fileID: 0}
-  slotNumber: 0
+  slotNumber: 1
   vigourMod: 10
   strengthMod: 1
   dexterityMod: -6

@@ -25,7 +25,12 @@ public class EquipmentManager : MonoBehaviour
     void Start()
     {
         //AssetDatabase.Refresh();
-        RefreshEquippables();
+        StartCoroutine(RefreshEquippables());
+    }
+
+    void onEnable()
+    {
+        StartCoroutine(RefreshEquippables());
     }
 
     public void Preview(EquippableItem itemToDisplay)
@@ -100,8 +105,21 @@ public class EquipmentManager : MonoBehaviour
         }
     }
 
-    public void RefreshEquippables()
+    public void daBuffy()
     {
+        StartCoroutine(RefreshEquippables());
+    }
+
+    public IEnumerator RefreshEquippables()
+    {
+        foreach (Transform t in equippablesContainer.transform)
+        {
+            Destroy(t.gameObject);
+        }
+
+        numEquippables = 0;
+        yield return new WaitForEndOfFrame(); //Make sure all objects are registered as destroyed before readding
+
         foreach (BaseItem i in inventory.inventory)
         {
             AddEquippable(i);

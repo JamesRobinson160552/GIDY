@@ -1,9 +1,3 @@
-Helm of Eternal Wisdom
-Basic Armour
-Heavy Armour
-Chainmail Shirt
-Elven Chainmail
-Leather Tunic
-Heavy Armour
-Leather Tunic
+GreatSword
+Warhammer
 Oak Staff
