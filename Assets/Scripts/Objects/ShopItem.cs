@@ -13,18 +13,26 @@ public class ShopItem : MonoBehaviour
     [SerializeField] private ItemDisplay display;
     [SerializeField] private Button buyButton;
     [SerializeField] private PlayerInfo player;
-    [SerializeField] private InventoryManager allItems;
-    [Header("Can be: armour / helmet / light / heavy / magic / consumable")]
-    [SerializeField] private string itemType;
-    string[] types = {"armour", "helmets", "light", "heavy", "magic", "consumables"};
+    [SerializeField] private InventoryManager inventory;
+    [SerializeField] private int index;
+    public bool bought;
 
-    void Start()
+    public void Init()
     {
-        GetItem();
         if (!player) { player = GameObject.Find("PlayerInfo").GetComponent<PlayerInfo>(); }
         if (!display) { display = GameObject.Find("ItemDisplay").GetComponent<ItemDisplay>(); }
-        displayImage.sprite = item.itemSprite;
-        displayPrice.text = "$" + item.value.ToString();
+        if (!inventory) { inventory = GameObject.Find("InventoryManager").GetComponent<InventoryManager>(); }
+        if (bought)
+        {
+            buyButton.enabled = false;
+            display.gameObject.SetActive(false);
+        }
+        else
+        {
+            displayImage.sprite = item.itemSprite;
+            displayPrice.text = "$" + item.value.ToString();
+            buyButton.enabled = true;
+        }
     }
 
     public void PreviewBuy()
@@ -36,55 +44,18 @@ public class ShopItem : MonoBehaviour
 
     public void Buy()
     {
-        UiSounds.instance.PlaySound(2);
         if (player.gold < item.value)
         {
             Debug.Log("Not Enough Gold!");
             return;
         }
 
+        UiSounds.instance.PlaySound(2);
         player.SetGold(player.gold - item.value);
-        allItems.AddItem(item);
+        inventory.AddItem(item);
         display.gameObject.SetActive(false);
         buyButton.enabled = false;
-    }
-
-    private void GetItem()
-    {
-        BaseItem[] itemArray;
-        switch (itemType)
-        {
-            case "armour":
-                itemArray = allItems.armour;
-                break;
-            case "helmet":
-                itemArray = allItems.helmets;
-                break;
-            case "light":
-                itemArray = allItems.lightWeapons;
-                break;
-            case "heavy":
-                itemArray = allItems.heavyWeapons;
-                break;
-            case "magic":
-                itemArray = allItems.magicWeapons;
-                break;
-            case "consumables":
-                itemArray = allItems.consumables;
-                break;
-            default:
-                itemType = types[Random.Range(0, types.Length-1)];
-                GetItem();
-                return;
-        }
-
-        int count = 0;
-        //While loop since this might miss if the array is not full
-        while (item == null && count < 10)
-        {
-            int randomIndex = Random.Range(0, itemArray.Length-1);
-            item = itemArray[randomIndex];
-            count ++;
-        }
+        bought = true;
+        PlayerPrefs.SetInt("bought" + index, 1);
     }
 }

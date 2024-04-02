@@ -14,11 +14,18 @@ public class ItemSlot : MonoBehaviour
     [SerializeField] private Image sprite;
     [SerializeField] private EquipmentManager equipmentManager;
 
-    private void Start()
+    public void Init()
     {
-        currentlyEquipped = (BaseEquipment)playerInfo.equipped[slotNumber];
-        if (currentlyEquipped) sprite.sprite = currentlyEquipped.itemSprite;
-        else sprite.color = new Color(0, 0, 0, 0);
+        if (currentlyEquipped) 
+        {
+            sprite.sprite = currentlyEquipped.itemSprite;
+            sprite.color = new Color(1, 1, 1, 1);
+        }
+
+        else 
+        {
+            sprite.color = new Color(0, 0, 0, 0);
+        }
     }
 
     public void Equip(BaseItem item)
@@ -30,7 +37,8 @@ public class ItemSlot : MonoBehaviour
         }
         inventory.RemoveItem(item);
         currentlyEquipped = item;
-        playerInfo.SaveEquipped();
+        playerInfo.equipped[slotNumber] = item;
+        SavingSystem.i.Save("equipped");
         sprite.sprite = currentlyEquipped.itemSprite;
         sprite.color = new Color(1, 1, 1, 1);
     }
@@ -42,7 +50,7 @@ public class ItemSlot : MonoBehaviour
         StartCoroutine(equipmentManager.RefreshEquippables());
         currentlyEquipped = null;
         playerInfo.equipped[slotNumber] = null;
-        playerInfo.SaveEquipped();
+        SavingSystem.i.Save("equipped");
         sprite.sprite = null;
         sprite.color = new Color(0, 0, 0, 0);
     }

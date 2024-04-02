@@ -6,7 +6,7 @@ using System;
 using UnityEngine;
 using UnityEditor;
 
-public class InventoryManager : MonoBehaviour
+public class InventoryManager : MonoBehaviour, ISavable
 {
     public BaseItem[] armour = new BaseItem[100];
     public BaseItem[] heavyWeapons = new BaseItem[100];
@@ -28,17 +28,7 @@ public class InventoryManager : MonoBehaviour
 
     public void LoadInventory()
     {
-        //AssetDatabase.Refresh();
-        inventoryList = new List<string>();
-        //Get tasks from file
-        StreamReader reader = new StreamReader(GetPath());
-        while (reader.Peek() >= 0)
-        {
-            inventoryList.Add(reader.ReadLine());
-        }
-        reader.Close(); 
-
-        Debug.Log(inventoryList[0]);
+        SavingSystem.i.Load("inventory");
 
         for (int i=0; i<inventoryList.Count; i++)
         {
@@ -46,17 +36,12 @@ public class InventoryManager : MonoBehaviour
             Debug.Log(currentItem);
             if (currentItem.Length > 1)
             {
-                CheckArray(armour, currentItem);
-                CheckArray(heavyWeapons, currentItem);
-                CheckArray(helmets, currentItem);
-                CheckArray(lightWeapons, currentItem);
-                CheckArray(magicWeapons, currentItem);
-                CheckArray(consumables, currentItem);
+                inventory.Add(FindItem(currentItem));
             }
         }
     }
 
-    void CheckArray(BaseItem[] itemType, string nameOfItem)
+    public BaseItem CheckArray(BaseItem[] itemType, string nameOfItem)
     {
         for (int i=0; i<itemType.Length; i++)
         {
@@ -64,49 +49,59 @@ public class InventoryManager : MonoBehaviour
             {
                 if (itemType[i].itemName == nameOfItem)
                 {
-                    inventory.Add(itemType[i]);
+                    return (itemType[i]);
                 }
             }
         }
+        return null;
     }
 
-    public void SaveInventory()
+    public BaseItem FindItem(string name)
     {
-        using (var stream = new FileStream(GetPath(), FileMode.Truncate))
-        {
-            using (StreamWriter writer = new StreamWriter(stream))
-            {
-                foreach (BaseItem i in inventory)
-                {
-                    writer.WriteLine(i.itemName);
-                }
-                writer.Close();
-            }
-            stream.Close();
-        }
-    }
-
-    private string GetPath()
-    {
-        #if UNITY_EDITOR
-        return Application.dataPath+"/Data/"+"inventory.txt";
-        #elif UNITY_ANDROID
-        return Application.persistentDataPath+"inventory.txt";
-        #else
-        return Application.persistentDataPath+"/inventory.txt";
-        #endif
+        BaseItem target = null;
+        target = CheckArray(armour, name);
+        if (target == null) target = CheckArray(heavyWeapons, name);
+        if (target == null)target = CheckArray(helmets, name);
+        if (target == null)target = CheckArray(lightWeapons, name);
+        if (target == null)target = CheckArray(magicWeapons, name);
+        if (target == null)target = CheckArray(consumables, name);
+        return target;
     }
 
     public void AddItem(BaseItem item)
     {
         inventory.Add(item);
+        inventoryList.Add(item.itemName);
         salesManager.AddSellable(item);
-        SaveInventory();
+        SavingSystem.i.Save("inventory");
     }
 
     public void RemoveItem(BaseItem item)
     {
         inventory.Remove(item);
-        SaveInventory();
+        inventoryList.Remove(item.itemName);
+        SavingSystem.i.Save("inventory");
+    }
+
+    public object CaptureState()
+    {
+        Debug.Log("Capturing state of inventory");
+        Dictionary<string, object> state = new Dictionary<string, object>();
+        for (int i = 0; i < inventoryList.Count; i++)
+        {
+            state[i.ToString()] = inventoryList[i];
+        }
+        return state;
+    }
+
+    public void RestoreState(object state)
+    {
+        Debug.Log("Restoring state of inventory");
+        inventoryList.Clear();
+        Dictionary<string, object> stateDict = (Dictionary<string, object>)state;
+        for (int i = 0; i < stateDict.Count; i++)
+        {
+            inventoryList.Add(stateDict[i.ToString()].ToString());
+        }
     }
 }

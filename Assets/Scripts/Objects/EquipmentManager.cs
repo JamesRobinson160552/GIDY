@@ -13,7 +13,6 @@ public class EquipmentManager : MonoBehaviour
     [SerializeField] private Image image;
 
     private EquippableItem currentItem;
-    [SerializeField] private PlayerInfo playerInfo;
     [SerializeField] private InventoryManager inventory;
     [SerializeField] private Vector3 startOfScroll;
     [SerializeField] private GameObject equippableItemPrefab;

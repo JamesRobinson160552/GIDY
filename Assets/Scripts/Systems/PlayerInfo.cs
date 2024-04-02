@@ -8,7 +8,7 @@ using UnityEngine.UI;
 using UnityEditor;
 using TMPro;
 
-public class PlayerInfo : MonoBehaviour
+public class PlayerInfo : MonoBehaviour, ISavable
 {
     [SerializeField] private float expRequirementModifier;
     [SerializeField] private float expRequirementGrowthRate;
@@ -21,6 +21,7 @@ public class PlayerInfo : MonoBehaviour
     [SerializeField] private TextMeshProUGUI goldText;
     [SerializeField] private InventoryManager inventory;
     public BaseItem[] equipped = new BaseItem[5];
+    [SerializeField] private ItemSlot[] itemSlots;
 
     public void Awake()
     {
@@ -28,6 +29,7 @@ public class PlayerInfo : MonoBehaviour
         exp = PlayerPrefs.GetInt("exp", 0);
         gold = PlayerPrefs.GetInt("gold", 0);
         goldText.text = "$" + gold.ToString();
+        SavingSystem.i.Load("equipped");
         SetLevelThreshold();
         SetExpBar();
     }
@@ -71,57 +73,37 @@ public class PlayerInfo : MonoBehaviour
         PlayerPrefs.SetInt("gold", gold);
     }
 
-    private string GetPath()
+    public object CaptureState()
     {
-        #if UNITY_EDITOR
-        return Application.dataPath+"/Data/"+"equipped.txt";
-        #elif UNITY_ANDROID
-        return Application.persistentDataPath+"equipped.txt";
-        #else
-        return Application.persistentDataPath+"/equipped.txt";
-        #endif
-    }
-
-    public void SaveEquipped()
-    {
-        using (var stream = new FileStream(GetPath(), FileMode.Truncate))
+        Debug.Log("Capturing state of equipment");
+        Dictionary<string, object> state = new Dictionary<string, object>();
+        for (int i = 0; i < equipped.Length; i++)
         {
-            using (StreamWriter writer = new StreamWriter(stream))
+            if (equipped[i] != null)
             {
-                for (int i=0; i<5; i++)
-                {
-                    if (equipped[i])
-                    {
-                        writer.WriteLine(equipped[i].itemName);
-                    }
-                    else
-                    {
-                        writer.WriteLine("");
-                    }
-                }
-                writer.Close();
+                state[i.ToString()] = equipped[i].itemName;
             }
-            stream.Close();
+            else
+            {
+                state[i.ToString()] = null;
+            }
         }
+        return state;
     }
 
-    public void LoadEquipped()
+    public void RestoreState(object state)
     {
-        //AssetDatabase.Refresh();
-        List<string> equippedList = new List<string>();
-        StreamReader reader = new StreamReader(GetPath());
-
-        while (reader.Peek() >= 0)
+        Debug.Log("Restoring state of equipment");
+        Dictionary<string, object> stateDict = (Dictionary<string, object>)state;
+        for (int i = 0; i < equipped.Length; i++)
         {
-            equippedList.Add(reader.ReadLine());
+            if (stateDict[i.ToString()] != null)
+            {
+                equipped[i] = inventory.FindItem(stateDict[i.ToString()].ToString());
+                itemSlots[i].currentlyEquipped = equipped[i];
+            }
+            itemSlots[i].Init();
         }
-        reader.Close();
-
-        equipped[0] = CheckArray(inventory.armour, equippedList[0]);
-        equipped[1] = CheckArray(inventory.helmets, equippedList[1]);
-        equipped[2] = CheckArray(inventory.lightWeapons, equippedList[2]);
-        equipped[3] = CheckArray(inventory.heavyWeapons, equippedList[3]);
-        equipped[4] = CheckArray(inventory.magicWeapons, equippedList[4]);
     }
 
     private BaseItem CheckArray(BaseItem[] itemType, string nameOfItem)
