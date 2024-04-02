@@ -19,7 +19,7 @@ MonoBehaviour:
   value: 75
   weight: 0
   itemSprite: {fileID: 21300000, guid: 72c4d81bc58502d4393ff362d3766c24, type: 3}
-  slotNumber: 0
+  slotNumber: 4
   vigourMod: 0
   strengthMod: 0
   dexterityMod: 3
