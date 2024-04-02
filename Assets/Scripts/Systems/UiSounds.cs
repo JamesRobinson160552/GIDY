@@ -11,7 +11,14 @@ public class UiSounds : MonoBehaviour
     void Awake()
     {
         instance = this;
-        Screen.orientation = ScreenOrientation.Portrait;
+        if (Application.platform == RuntimePlatform.WindowsPlayer)
+        {
+            Screen.SetResolution(480, 1020, false);
+        }
+        else
+        {
+            Screen.orientation = ScreenOrientation.Portrait;
+        }
     }
 
     public void PlaySound(int index)

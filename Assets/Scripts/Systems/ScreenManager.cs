@@ -20,7 +20,14 @@ public class ScreenManager : MonoBehaviour
 
     public void LoadBattle()
     {
+        if (Application.platform == RuntimePlatform.WindowsPlayer)
+        {
+            Screen.SetResolution(1020, 480, false);
+        }
+        else
+        {
+            Screen.orientation = ScreenOrientation.LandscapeLeft;
+        }
         SceneManager.LoadScene("BattleScene");
-        Screen.orientation = ScreenOrientation.LandscapeLeft;
     }
 }

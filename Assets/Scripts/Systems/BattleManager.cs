@@ -66,6 +66,11 @@ public class BattleManager : MonoBehaviour
         Debug.Log("Running!!");
         SceneManager.LoadScene("ListScene");
         Screen.orientation = ScreenOrientation.Portrait;
+        if (Application.platform == RuntimePlatform.WindowsPlayer)
+        {
+            Screen.SetResolution(1080, 1920, true);
+        }
+        
     }
 
     //2 is light, 3 is heavy, 4 is magic
@@ -99,5 +104,9 @@ public class BattleManager : MonoBehaviour
     {
         SceneManager.LoadScene("ListScene");
         Screen.orientation = ScreenOrientation.Portrait;
+        if (Application.platform == RuntimePlatform.WindowsPlayer)
+        {
+            Screen.SetResolution(1080, 1920, true);
+        }
     }
 }

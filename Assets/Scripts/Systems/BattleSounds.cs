@@ -22,6 +22,14 @@ public class BattleSounds : MonoBehaviour
         {
             i = this;
         }
+        if (Application.platform == RuntimePlatform.WindowsPlayer)
+        {
+            Screen.SetResolution(480, 1020, false);
+        }
+        else
+        {
+            Screen.orientation = ScreenOrientation.LandscapeLeft;
+        }
     }
 
     public void PlaySound(int type)
